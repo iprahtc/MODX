@@ -5,7 +5,7 @@
 $database_type     = 'mysqli';
 $database_server   = 'localhost';
 $database_user     = 'root';
-$database_password = '';
+$database_password = 'toor';
 $database_connection_charset = 'utf8';
 $database_connection_method = 'SET CHARACTER SET';
 $dbase             = '`wotch`';
