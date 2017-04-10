@@ -1,0 +1,2 @@
+$ cat .gitignore
+manager\includes\config.inc.php
