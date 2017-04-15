@@ -1,8 +1,8 @@
 ﻿--
--- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 7.2.53.0
+-- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 7.2.58.0
 -- Домашняя страница продукта: http://www.devart.com/ru/dbforge/mysql/studio
--- Дата скрипта: 07.04.2017 22:01:08
--- Версия сервера: 5.7.16
+-- Дата скрипта: 15.04.2017 22:14:55
+-- Версия сервера: 5.6.34
 -- Версия клиента: 4.1
 --
 
@@ -42,7 +42,7 @@ CREATE TABLE modx_active_user_locks (
   UNIQUE INDEX ix_element_id (elementType, elementId, sid)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 37
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Contains data about locked elements.';
@@ -188,7 +188,7 @@ CREATE TABLE modx_manager_log (
   PRIMARY KEY (id)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 111
 AVG_ROW_LENGTH = 46
 CHARACTER SET utf8
 COLLATE utf8_general_ci
@@ -350,7 +350,7 @@ CREATE TABLE modx_site_htmlsnippets (
   PRIMARY KEY (id)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 7
+AUTO_INCREMENT = 8
 AVG_ROW_LENGTH = 645
 CHARACTER SET utf8
 COLLATE utf8_general_ci
@@ -958,13 +958,14 @@ COMMENT = 'Contains data used for web access permissions.';
 -- Вывод данных для таблицы modx_active_user_sessions
 --
 INSERT INTO modx_active_user_sessions VALUES
-('g7k5r5hmcm1sjg7e6p9o565s07', 1, 1491595121, '127.0.0.1');
+('duhnf7v9a2oj1j3i5teuiahkv2', 1, 1492283562, '127.0.0.1');
 
 -- 
 -- Вывод данных для таблицы modx_active_users
 --
 INSERT INTO modx_active_users VALUES
-('g7k5r5hmcm1sjg7e6p9o565s07', 1, 'admin', 1491595121, '17', NULL);
+('g7k5r5hmcm1sjg7e6p9o565s07', 1, 'admin', 1491595121, '17', NULL),
+('duhnf7v9a2oj1j3i5teuiahkv2', 1, 'admin', 1492283562, '67', 3);
 
 -- 
 -- Вывод данных для таблицы modx_categories
@@ -1009,7 +1010,115 @@ INSERT INTO modx_categories VALUES
 --
 INSERT INTO modx_manager_log VALUES
 (1, 1491595120, 1, 'admin', 58, '-', 'MODX', 'Logged in'),
-(2, 1491595121, 1, 'admin', 17, '-', '-', 'Editing settings');
+(2, 1491595121, 1, 'admin', 17, '-', '-', 'Editing settings'),
+(3, 1492280137, 1, 'admin', 58, '-', 'MODX', 'Logged in'),
+(4, 1492280143, 1, 'admin', 17, '-', '-', 'Editing settings'),
+(5, 1492280505, 1, 'admin', 27, '1', 'Home', 'Editing resource'),
+(6, 1492280523, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(7, 1492280526, 1, 'admin', 76, '-', '-', 'Element management'),
+(8, 1492280533, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(9, 1492280592, 1, 'admin', 79, '5', 'header', 'Saving Chunk (HTML Snippet)'),
+(10, 1492280592, 1, 'admin', 76, '-', '-', 'Element management'),
+(11, 1492280597, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(12, 1492280939, 1, 'admin', 79, '5', 'header', 'Saving Chunk (HTML Snippet)'),
+(13, 1492280939, 1, 'admin', 76, '-', '-', 'Element management'),
+(14, 1492280969, 1, 'admin', 77, '-', 'Новый чанк', 'Creating a new Chunk (HTML Snippet)'),
+(15, 1492281019, 1, 'admin', 79, '-', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(16, 1492281019, 1, 'admin', 76, '-', '-', 'Element management'),
+(17, 1492281043, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(18, 1492281076, 1, 'admin', 76, '-', '-', 'Element management'),
+(19, 1492281078, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(20, 1492281089, 1, 'admin', 79, '5', 'header', 'Saving Chunk (HTML Snippet)'),
+(21, 1492281089, 1, 'admin', 76, '-', '-', 'Element management'),
+(22, 1492281095, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(23, 1492281206, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+(24, 1492281206, 1, 'admin', 76, '-', '-', 'Element management'),
+(25, 1492281209, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(26, 1492281322, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(27, 1492281322, 1, 'admin', 76, '-', '-', 'Element management'),
+(28, 1492281338, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(29, 1492281360, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(30, 1492281360, 1, 'admin', 76, '-', '-', 'Element management'),
+(31, 1492281374, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(32, 1492281411, 1, 'admin', 76, '-', '-', 'Element management'),
+(33, 1492281419, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(34, 1492281428, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+(35, 1492281428, 1, 'admin', 76, '-', '-', 'Element management'),
+(36, 1492281464, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(37, 1492281469, 1, 'admin', 79, '5', 'header', 'Saving Chunk (HTML Snippet)'),
+(38, 1492281469, 1, 'admin', 76, '-', '-', 'Element management'),
+(39, 1492281481, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(40, 1492281488, 1, 'admin', 76, '-', '-', 'Element management'),
+(41, 1492281493, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(42, 1492281519, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(43, 1492281519, 1, 'admin', 76, '-', '-', 'Element management'),
+(44, 1492281531, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(45, 1492281541, 1, 'admin', 76, '-', '-', 'Element management'),
+(46, 1492281543, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(47, 1492281545, 1, 'admin', 76, '-', '-', 'Element management'),
+(48, 1492281546, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(49, 1492281560, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(50, 1492281560, 1, 'admin', 76, '-', '-', 'Element management'),
+(51, 1492281583, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(52, 1492281594, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(53, 1492281594, 1, 'admin', 76, '-', '-', 'Element management'),
+(54, 1492281606, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(55, 1492281613, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(56, 1492281613, 1, 'admin', 76, '-', '-', 'Element management'),
+(57, 1492281639, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(58, 1492281762, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(59, 1492281762, 1, 'admin', 76, '-', '-', 'Element management'),
+(60, 1492281793, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(61, 1492281796, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(62, 1492281796, 1, 'admin', 76, '-', '-', 'Element management'),
+(63, 1492281823, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(64, 1492281976, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+(65, 1492281976, 1, 'admin', 76, '-', '-', 'Element management'),
+(66, 1492282010, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(67, 1492282027, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+(68, 1492282027, 1, 'admin', 76, '-', '-', 'Element management'),
+(69, 1492282070, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(70, 1492282370, 1, 'admin', 76, '-', '-', 'Element management'),
+(71, 1492282372, 1, 'admin', 76, '-', '-', 'Element management'),
+(72, 1492282396, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(73, 1492282478, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(74, 1492282478, 1, 'admin', 76, '-', '-', 'Element management'),
+(75, 1492282484, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(76, 1492282555, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(77, 1492282555, 1, 'admin', 76, '-', '-', 'Element management'),
+(78, 1492282578, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(79, 1492282878, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(80, 1492282878, 1, 'admin', 76, '-', '-', 'Element management'),
+(81, 1492282878, 1, 'admin', 76, '-', '-', 'Element management'),
+(82, 1492282903, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(83, 1492282952, 1, 'admin', 76, '-', '-', 'Element management'),
+(84, 1492282957, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(85, 1492282987, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(86, 1492282987, 1, 'admin', 76, '-', '-', 'Element management'),
+(87, 1492283009, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(88, 1492283025, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(89, 1492283025, 1, 'admin', 76, '-', '-', 'Element management'),
+(90, 1492283137, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(91, 1492283167, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(92, 1492283167, 1, 'admin', 76, '-', '-', 'Element management'),
+(93, 1492283182, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(94, 1492283226, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(95, 1492283226, 1, 'admin', 76, '-', '-', 'Element management'),
+(96, 1492283235, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(97, 1492283246, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(98, 1492283246, 1, 'admin', 76, '-', '-', 'Element management'),
+(99, 1492283275, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(100, 1492283307, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(101, 1492283307, 1, 'admin', 76, '-', '-', 'Element management'),
+(102, 1492283382, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(103, 1492283402, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(104, 1492283402, 1, 'admin', 76, '-', '-', 'Element management'),
+(105, 1492283485, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(106, 1492283510, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(107, 1492283510, 1, 'admin', 76, '-', '-', 'Element management'),
+(108, 1492283536, 1, 'admin', 16, '3', 'Home', 'Editing template'),
+(109, 1492283562, 1, 'admin', 20, '3', 'Home', 'Saving template'),
+(110, 1492283562, 1, 'admin', 76, '-', '-', 'Element management');
 
 -- 
 -- Вывод данных для таблицы modx_manager_users
@@ -1054,9 +1163,10 @@ INSERT INTO modx_site_htmlsnippets VALUES
 (1, 'eFeedbackForm', 'eFeedbackForm Шаблон формы обратной связи', 0, 'none', 3, 0, '<p><span style="color:#900;">[+validationmessage+]</span></p>\r\n\r\n<form  class="eform" method="post" action="[~[*id*]~]">\r\n\r\n<input type="hidden" name="formid" value="feedbackForm" />\r\n<input value="" name="special" class="special" type="text" eform="Спец:date:0"  style="display:none;" />\r\n<p>\r\n    <input type="text" name="name" id="name" class="grid_3" value=""  eform="Имя:string:1"/>\r\n    <label for="name">Ваше имя</label>\r\n</p>\r\n            \r\n<p>\r\n    <input type="text" name="email" id="email" class="grid_3" value="" eform="E-mail:email:1" />\r\n    <label for="email">Ваш E-mail</label>\r\n</p>\r\n            \r\n<p>\r\n    <input type="text" name="phone" id="subject" class="grid_3" value="" eform="Номер телефона:string:1"/>\r\n    <label for="subject">Номер телефона</label>\r\n</p>\r\n            \r\n<p>\r\n    <textarea name="comments" id="message" class="grid_6" cols="50" rows="10" eform="Текст сообщения:string:1"></textarea>\r\n</p>\r\n<p>Введите код с картинки: <br />\r\n    <input type="text" class="ver" name="vericode" /><img class="feed" src="[+verimageurl+]" alt="Введите код" />\r\n</p>            \r\n<p>\r\n    <input type="submit" name="submit" class="subeform grid_2" value="Отправить сообщение"/>\r\n </p>\r\n\r\n</form>\r\n\r\n\r\n \r\n\r\n', 0),
 (2, 'eFeedbackReport', 'eFeedbackReport  шаблон отправки на почту', 0, 'none', 3, 0, '<p>Прислано человеком, с именем: [+name+] . Подробности ниже:</p>\r\n<table>\r\n<tr valign="top"><td>Имя:</td><td>[+name+]</td></tr>\r\n<tr valign="top"><td>E-mail:</td><td>[+email+]</td></tr>\r\n<tr valign="top"><td>Номер телефона:</td><td>[+phone+]</td></tr>\r\n<tr valign="top"><td>Текст сообщения:</td><td>[+comments+]</td></tr>\r\n</table>\r\n<p>Можно использовать ссылку для ответа: <a href="mailto:[+email+]?subject=RE:[+subject+]">[+email+]</a></p>\r\n\r\n', 0),
 (3, 'feedback', 'форма обратной связи', 0, 'none', 3, 0, '[!eForm? &formid=`feedbackForm` &subject=`Сообщение с сайта` &tpl=`eFeedbackForm` &report=`eFeedbackReport` &gotoid=`[*id*]` &vericode=`1` !] \r\n\r\n', 0),
-(4, 'footer', 'низ сайта', 0, 'none', 4, 0, '<!--  Mem : [^m^], MySQL: [^qt^], [^q^] request(s), PHP: [^p^], total: [^t^], document from [^s^]. -->', 0),
-(5, 'header', 'шапка', 0, 'none', 4, 0, '<meta http-equiv="Content-Type" content="text/html; charset=[(modx_charset)]" /> \r\n<title>[*titl*]</title>\r\n[*noIndex*]\r\n<meta name="keywords" content="[*keyw*]" />\r\n<meta name="description" content="[*desc*]" />\r\n<base href="[(site_url)]"/>\r\n', 0),
-(6, 'mm_rules', 'Default ManagerManager rules.', 0, 'none', 5, 0, '// more example rules are in assets/plugins/managermanager/example_mm_rules.inc.php\r\n// example of how PHP is allowed - check that a TV named documentTags exists before creating rule\r\n\r\nmm_widget_showimagetvs(); // Показываем превью ТВ\r\n\r\nmm_createTab(''Для SEO'', ''seo'', '''', '''', '''', '''');\r\nmm_moveFieldsToTab(''titl,keyw,desc,seoOverride,noIndex,sitemap_changefreq,sitemap_priority,sitemap_exclude'', ''seo'', '''', '''');\r\nmm_widget_tags(''keyw'','',''); // Give blog tag editing capabilities to the ''documentTags (3)'' TV\r\n\r\n\r\n//mm_createTab(''Изображения'', ''photos'', '''', '''', '''', ''850'');\r\n//mm_moveFieldsToTab(''images,photos'', ''photos'', '''', '''');\r\n\r\n//mm_hideFields(''longtitle,description,link_attributes,menutitle,content'', '''', ''6,7'');\r\n\r\n//mm_hideTemplates(''0,5,8,9,11,12'', ''2,3'');\r\n\r\n//mm_hideTabs(''settings, access'', ''2'');\r\n\r\n//mm_widget_evogallery(1, Галерея, ''1,2,3'', 3);   // подключаем галерею \r\n//mm_galleryLink($fields, $roles, $templates, $moduleid);\r\n//mm_widget_evogallery($moduleid, $title, $roles, $templates);\r\n', 0);
+(4, 'footer', 'низ сайта', 2, 'none', 4, 0, '<footer class="page-footer orange">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col l6 s12">\r\n          <h5 class="white-text">Company Bio</h5>\r\n          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it''s our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>\r\n\r\n\r\n        </div>\r\n        <div class="col l3 s12">\r\n          <h5 class="white-text">Settings</h5>\r\n          <ul>\r\n            <li><a class="white-text" href="#!">Link 1</a></li>\r\n          </ul>\r\n        </div>\r\n        <div class="col l3 s12">\r\n          <h5 class="white-text">Connect</h5>\r\n          <ul>\r\n            <li><a class="white-text" href="#!">Link 1</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class="footer-copyright">\r\n      <div class="container">\r\n      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>\r\n      </div>\r\n    </div>\r\n  </footer>\r\n\r\n\r\n  <!--  Scripts-->\r\n  <script src="/assets/js/jquery/jquery.min.js"></script>\r\n  <script src="/assets/js/wotch/materialize.js"></script>\r\n  <script src="/assets/js/wotch/init.js"></script>\r\n\r\n  </body>\r\n</html>', 0),
+(5, 'header', 'шапка', 2, 'none', 4, 0, '<!DOCTYPE html>\r\n\t<html lang="ru">\r\n\t<head>\r\n\t<meta http-equiv="Content-Type" content="text/html; charset=[(modx_charset)]" /> \r\n\t<title>Главная</title>\r\n\t[*noIndex*]\r\n\t<meta name="keywords" content="[*keyw*]" />\r\n\t<meta name="description" content="[*desc*]" />\r\n\t<base href="[(site_url)]"/>\r\n\t<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">\r\n\t<link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>\r\n  \t<link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>\r\n</head>\r\n<body>', 0),
+(6, 'mm_rules', 'Default ManagerManager rules.', 0, 'none', 5, 0, '// more example rules are in assets/plugins/managermanager/example_mm_rules.inc.php\r\n// example of how PHP is allowed - check that a TV named documentTags exists before creating rule\r\n\r\nmm_widget_showimagetvs(); // Показываем превью ТВ\r\n\r\nmm_createTab(''Для SEO'', ''seo'', '''', '''', '''', '''');\r\nmm_moveFieldsToTab(''titl,keyw,desc,seoOverride,noIndex,sitemap_changefreq,sitemap_priority,sitemap_exclude'', ''seo'', '''', '''');\r\nmm_widget_tags(''keyw'','',''); // Give blog tag editing capabilities to the ''documentTags (3)'' TV\r\n\r\n\r\n//mm_createTab(''Изображения'', ''photos'', '''', '''', '''', ''850'');\r\n//mm_moveFieldsToTab(''images,photos'', ''photos'', '''', '''');\r\n\r\n//mm_hideFields(''longtitle,description,link_attributes,menutitle,content'', '''', ''6,7'');\r\n\r\n//mm_hideTemplates(''0,5,8,9,11,12'', ''2,3'');\r\n\r\n//mm_hideTabs(''settings, access'', ''2'');\r\n\r\n//mm_widget_evogallery(1, Галерея, ''1,2,3'', 3);   // подключаем галерею \r\n//mm_galleryLink($fields, $roles, $templates, $moduleid);\r\n//mm_widget_evogallery($moduleid, $title, $roles, $templates);\r\n', 0),
+(7, 'NAV', 'навбар', 2, 'none', 0, 0, '<nav class="light-blue lighten-1" role="navigation">\r\n    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="/assets/images/logo2.png"></a>\r\n      <ul class="right hide-on-med-and-down">\r\n        <li><a href="#">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a href="#">Вход</a></li>\r\n      </ul>\r\n\r\n      <ul id="nav-mobile" class="side-nav">\r\n\t\t<li><a href="#">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a href="#">Вход</a></li>\r\n      </ul>\r\n      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>\r\n    </div>\r\n</nav>', 0);
 
 -- 
 -- Вывод данных для таблицы modx_site_keywords
@@ -1178,7 +1288,7 @@ INSERT INTO modx_site_snippets VALUES
 -- Вывод данных для таблицы modx_site_templates
 --
 INSERT INTO modx_site_templates VALUES
-(3, 'Home', '', 0, 0, '', 0, '{{header}}\r\n[*content*]\r\n{{footer}}', 0, 1),
+(3, 'Home', '', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div id="index-banner" class="parallax-container">\r\n    <div class="section no-pad-bot">\r\n      <div class="container">\r\n        <div class="row center">\r\n          <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 buttonf">БЫТЬ ПЕРВЫМ</a>\r\n        </div>\r\n        <br><br>\r\n\r\n      </div>\r\n    </div>\r\n    <div class="parallax"><img src="[(site_url)]assets/images/1.png" alt="Unsplashed background img 1"></div>\r\n  </div>\r\n  \r\n  <div class="section no-pad-bot" id="index-banner">\r\n    <div class="container">\r\n      <br><br>\r\n      <h1 class="header center orange-text">Как это работает?</h1>\r\n      <div class="row center">\r\n        <h5 class="header col s12 light">А не как, я не доделал)</h5>\r\n      </div>\r\n      <br><br>\r\n\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div class="container">\r\n    <div class="section">\r\n\r\n      <!--   Icon Section   -->\r\n      \r\n<div class="row">\r\n        \r\n\t\r\n        <div class="col s12 m4">\r\n          <div class="icon-block">\r\n            <h2 class="center light-blue-text"><i class="material-icons">supervisor_account</i></h2>\r\n            <h5 class="center">Пользователи</h5>\r\n\r\n            <p class="light"><b>Нас уже (...)</b></p>\r\n            <p class="light"><b>Количество надзерателей (...)</b></p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class="col s12 m4">\r\n          <div class="icon-block">\r\n            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>\r\n            <h5 class="center">Планы на будущее</h5>\r\n\r\n            <p class="light"><b>Сделать сайт!</b></p>\r\n          </div>\r\n        </div>\r\n\r\n\t\t<div class="col s12 m4">\r\n\t\t\t  <div class="icon-block">\r\n\t\t\t\t<h2 class="center light-blue-text"><i class="material-icons">visibility</i></h2>\r\n\t\t\t\t<h5 class="center">Поддерживаемые сайты</h5>\r\n\r\n\t\t\t\t<p class="light">Тут будут логотипы сайтов</p>\r\n\t\t\t  </div>\r\n\t\t\t</div>\r\n\t\t  </div>\r\n\r\n    </div>\r\n    <br><br>\r\n\r\n    <div class="section">\r\n\r\n    </div>\r\n  </div>\r\n{{footer}}', 0, 1),
 (4, 'MODX startup - Bootstrap', '<strong>1.0</strong> Sample template in Bootstrap', 0, 1, '', 0, '<!DOCTYPE html>\n<html lang="[(lang_code)]">\n<head>\t\n\t<base href="[(site_url)]" />\n\t<meta charset="[(modx_charset)]" />\n\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t<meta http-equiv="X-UA-Compatible" content="IE=edge">\n\t<title>[*pagetitle*] / [(site_name)]</title>\n\t<@IF:[*description:isntEmpty*]><meta name="description" content="[*description*]"><@ENDIF>\n\t\n\t<link href="[(site_url)]<@IF:[*id:isnt(1)*]>[~[*id*]~]<@ENDIF>" rel="canonical">\n\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">\t\n\t<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">\n\t<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">\n\t\n\t<style> \n\thtml, body{background:#eee; font-family:''Open Sans'',sans-serif; line-height:1.8; font-size:14px;}\n\ta:focus{outline:none; outline-offset:0;}\n\th1{margin-top:15px;}\n\n\t.logo{float:left;}\n\t.logo img{max-width:200px; margin:10px 0; display:block; height:50px; width:auto;}\n\t.dropdown-menu{border-radius:0; border:0;}\n\t.dropdown-menu > li > a{padding-top:5px; padding-bottom:5px;}\n\n\t.navbar-collapse.collapse.in{border-bottom:10px solid #eee;}\n\t.navbar{min-height:0; background:#fff; margin-bottom:0;}\n\t.navbar.nav{margin-left:0;}\n\t.navbar.nav ul{padding-left:0;}\n\t.navbar-nav{margin:0;}\n\t.navbar-toggle{background:#fff; border:2px solid #eee; border-radius:0; position:fixed; z-index:99; right:0; top:7px; padding:12px 10px; margin-right:10px;}\n\t.navbar .navbar-toggle .icon-bar{background-color:#333;}\n\n\t.nav li a{text-transform:uppercase; color:#333; font-weight:500; font-size:110%;}\n\t.nav li li a{text-transform:none; font-weight:normal; font-size:100%;}\n\n\t.navbar{border:none; border-radius:0;}\n\t#navbar{padding:0;}\n\tul.nav > li > a:hover{background-color:#f5f5f5;}\n\n\t.affix{top:0px; width:100%; z-index:1000; background-color:#eee;}\n\t.affix + .affspacer{display:block; height:50px;}\n\n\t.box-shadow{-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175); box-shadow:0 6px 12px rgba(0,0,0,.175);}\n\n\t.container {max-width:970px; margin:0 12px;}\n\t.top .col-sm-12{padding-left:0; padding-right:0;}\n\n\t#ajaxSearch_input,\n\t#username,\n\t#password{width:100%!important;}\n\t#forgotpsswd{clear:both;}\n\tinput.button[type="submit"]{display:block;}\n\tlabel.checkbox{display:inline-block; margin-left:10px;}\n\tlabel, legend{font-weight:400;}\n\t#ajaxSearch_form { position:relative; }\n\t#searchClose { display:none !important; }\n    #indicator { position:absolute; top:9px; right:12px; z-index:10; opacity:.75; }\n\n\th2{font-size:22px;}\n\t.bread{padding:1em 0 0 0;}\n\t.mem{color:#aaa; text-align:center; padding:1em 0 2em;}\n\n\tsection.main .container{background-color:#fff; padding-bottom:20px;}\n\tfooter.footer .container{background-color:#000; color:#fff; line-height:40px;}\n\n\tsection.main ul{list-style:none; margin:0 0 1em 0; padding:0;}\n\tsection.main ul li{padding-left:1em;}\n\tsection.main ul li:before{content:''\\2022''; position:absolute; line-height:1.85em; margin-left:-1em;}\n\n\t.footer{text-align:center;}\n\t.footer .text-right{text-align:center;}\n\n\t/* JOT */\n\t.jot-comment{padding:5px 10px;}\n\t.jot-row-author{background-color:#dddddd;}\n\t.jot-row-alt{background-color:#f9f9f9;}\n\t.jot-row{background-color:#eeeeee;}\n\t.jot-row-up{border:1px solid #333!important;}\n\t.jot-row-up.panel-primary > .panel-heading{background-color:#333!important; border-color:#333!important;}\n\t.jot-extra{font-size:75%;}\n\t.jot-poster{font-size:inherit!important;}\n\n\t.ditto_summaryPost img{max-width:100%; height:auto; margin:10px 0 5px; display:block;}\n\t.ditto_summaryPost{padding-top:10px; padding-bottom:15px; border-bottom:1px solid #eee;}\n\n\t/* Larger than mobile */\n\t@media (min-width:320px) {\n\n\t}\n\n\t/* Larger than phablet */\n\t@media (min-width:480px) {\n\n\t}\n\n\t/* Larger than tablet */\n\t@media (min-width:768px) {\n\n\t\t.container{margin:0 auto;}\n\t\t.logo{padding-left:15px;}\n\t\t.logo img{ max-width:240px; margin:0; display:block; height:100px;}\n\n\t\t.navbar{background:transparent;}\n\t\t.navbar.affix{background:#eee;}\n\t\t.navbar-collapse.collapse.in{border-bottom:0;}\n\n\t\t.footer{text-align:left;}\n\t\t.footer .text-right{text-align:right;}\n\n\t\t.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {padding-left:35px; padding-right:35px;}\n\n\t}\n\t</style>\n\t\n\t<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>\n</head>\n<body>\n\t<section class="top">\n\t\t<div class="container">\n\t\t\t<div class="row">\n\t\t\t\t<div class="col-sm-12" itemscope itemtype="http://schema.org/Organization">\n\n\t\t\t\t\t<a class="logo" href="[~[(site_start)]~]" title="[(site_name)]" itemprop="url">\n\t\t\t\t\t\t<img src="[(site_url)]assets/images/modx-logo.png" itemprop="logo" width="240" height="100" alt="[(site_name)]" />\n\t\t\t\t\t</a>\n\n\t\t\t\t\t<div class="clearfix"></div>\n\n\t\t\t\t\t<nav class="navbar" role="navigation" data-spy="affix" data-offset-top="100">\n\n\t\t\t\t\t\t<div class="navbar-header">\n\t\t\t\t\t\t\t<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">\n\t\t\t\t\t\t\t\t<span class="sr-only">Toggle navigation</span>\n\t\t\t\t\t\t\t\t<span class="icon-bar"></span>\n\t\t\t\t\t\t\t\t<span class="icon-bar"></span>\n\t\t\t\t\t\t\t\t<span class="icon-bar"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div id="navbar" class="navbar-collapse collapse">\n\t\t\t\t\t\t\t[[Wayfinder? \n\t\t\t\t\t\t\t&startId=`0` \n\t\t\t\t\t\t\t&level=`2` \n\t\t\t\t\t\t\t&removeNewLines=`1`\n\t\t\t\t\t\t\t&outerTpl=`@CODE:<ul class="nav navbar-nav">[+wf.wrapper+]</ul>`\n\t\t\t\t\t\t\t&rowTpl=`@CODE:<li[+wf.classes+]><a href="[+wf.link+]" [+wf.attributes+]>[+wf.linktext+]</a>[+wf.wrapper+]</li>`\n\t\t\t\t\t\t\t&innerTpl=`@CODE:<ul class="dropdown-menu">[+wf.wrapper+]</ul>`\n\t\t\t\t\t\t\t&innerRowTpl=`@CODE:<li[+wf.classes+]><a href="[+wf.link+]">[+wf.linktext+]</a></li>`\n\t\t\t\t\t\t\t&parentRowTpl=`@CODE:<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="[+wf.title+]">[+wf.linktext+] <b class="caret"></b></a>[+wf.wrapper+]</li>`\n\t\t\t\t\t\t\t&activeParentRowTpl=`@CODE:<li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#" title="[+wf.title+]">[+wf.linktext+] <b class="caret"></b></a>[+wf.wrapper+]</li>`\n\t\t\t\t\t\t\t]]\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</nav>\n\t\t\t\t\t<div class="affspacer"></div>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t</section>\n\n\t\t<section class="main">\n\t\t\t<div class="container">\n\n\t\t\t\t<div class="row">\n\t\t\t\t\t<div class="col-sm-12">\n\t\t\t\t\t\t<div class="bread">\n\t\t\t\t\t\t\t[[Breadcrumbs]]\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="row">\n\n\t\t\t\t\t<div class="col-sm-8">\n\t\t\t\t\t\t<h1>[*#longtitle*]</h1>\n\t\t\t\t\t\t[*#content*]\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<aside class="col-sm-4">\n\t\t\t\t\t\t<div class="search">\n\t\t\t\t\t\t\t<h2>Search</h2>\n\t\t\t\t\t\t\t[!AjaxSearch? \n\t\t\t\t\t\t\t&ajaxSearch=`1` \n\t\t\t\t\t\t\t&addJscript=`0` \n\t\t\t\t\t\t\t&showIntro=`0` \n\t\t\t\t\t\t\t&ajaxMax=`5` \n\t\t\t\t\t\t\t&extract=`1`\n\t\t\t\t\t\t\t&jscript=`jquery`\n\t\t\t\t\t\t\t&tplInput=`AjaxSearch_tplInput`\n\t\t\t\t\t\t\t&tplAjaxGrpResult=`AjaxSearch_tplAjaxGrpResult`\n\t\t\t\t\t\t\t&tplAjaxResults=`AjaxSearch_tplAjaxResults`\n\t\t\t\t\t\t\t&tplAjaxResult=`AjaxSearch_tplAjaxResult`\n\t\t\t\t\t\t\t&showResults=`1`\n\t\t\t\t\t\t\t&liveSearch=`0`\n\t\t\t\t\t\t\t!]\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<h2>News:</h2>\n\t\t\t\t\t\t[[DocLister? \n\t\t\t\t\t\t&parents=`2` \n\t\t\t\t\t\t&display=`2`\n\t\t\t\t\t\t&total=`20` \n\t\t\t\t\t\t&removeChunk=`Comments` \n\t\t\t\t\t\t&tpl=`nl_sidebar`\n\t\t\t\t\t\t]]\n\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h2>Most Recent:</h2>\n\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t[[DocLister? \n\t\t\t\t\t\t\t\t&showInMenuOnly=`1` \n\t\t\t\t\t\t\t\t&parents=`0`\n\t\t\t\t\t\t\t\t&display=`5`\n\t\t\t\t\t\t\t\t&tpl=`@CODE:<li><a href="[+url+]" title="[+pagetitle+]">[+pagetitle+]</a> <span class="date">[+date+]</span></li>`\n\t\t\t\t\t\t\t\t]]\n\t\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<br/>\n\t\t\t\t\t\t<h2>Login:</h2>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t[!WebLogin? \n\t\t\t\t\t\t\t&tpl=`WebLogin_tplForm` \n\t\t\t\t\t\t\t&loginhomeid=`[(site_start)]`\n\t\t\t\t\t\t\t&focusInput=`0`\n\t\t\t\t\t\t\t!]\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</aside>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</section>\n\n\t\t<footer class="footer">\n\t\t\t<div class="container">\n\t\t\t\t<div class="row">\n\t\t\t\t\t<div class="col-sm-6">\n\t\t\t\t\t\t<a href="https://modx.com" title="Learn more about MODX">MODX</a> Starter-Template &copy;2006-[[$_SERVER[''REQUEST_TIME'']:dateFormat=`Y` ]]\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="col-sm-6 text-right">\n\t\t\t\t\t\tBuilt with <a href="http://www.getbootstrap.com" target="_blank">Bootstrap</a> framework.\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\n\t\t<div class="container mem">\n\t\t\t<small>Memory: [^m^], MySQL: [^qt^], [^q^] request(s), PHP: [^p^], total: [^t^], document retrieved from [^s^]. </small>\n\t</div>\n\n\t<!-- Scripts\n\t–––––––––––––––––––––––––––––––––––––––––––––––––– -->\t\n\n\t<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>\n\t<!--[if lt IE 9]>\n\t\t<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>\n\t\t<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>\n\t<![endif]-->\n\t\n</body>\n</html>', 0, 1);
 
 -- 
@@ -1197,10 +1307,10 @@ INSERT INTO modx_site_templates VALUES
 -- Вывод данных для таблицы modx_site_tmplvar_templates
 --
 INSERT INTO modx_site_tmplvar_templates VALUES
+(4, 3, 0),
 (1, 3, 0),
 (2, 3, 0),
-(3, 3, 0),
-(4, 3, 0);
+(3, 3, 0);
 
 -- 
 -- Вывод данных для таблицы modx_site_tmplvars
@@ -1454,7 +1564,7 @@ INSERT INTO modx_system_settings VALUES
 -- Вывод данных для таблицы modx_user_attributes
 --
 INSERT INTO modx_user_attributes VALUES
-(1, 1, 'Admin', 1, 'ipra-8@mail.ru', '', '', 0, 0, 0, 1, 0, 1491595120, 0, 'g7k5r5hmcm1sjg7e6p9o565s07', 0, 0, '', '', '', '', '', '', '', '');
+(1, 1, 'Admin', 1, 'ipra-8@mail.ru', '', '', 0, 0, 0, 2, 1491595120, 1492280137, 0, 'duhnf7v9a2oj1j3i5teuiahkv2', 0, 0, '', '', '', '', '', '', '', '');
 
 -- 
 -- Вывод данных для таблицы modx_user_messages
