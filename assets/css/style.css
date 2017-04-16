@@ -58,3 +58,13 @@ footer.page-footer {
 .buttonf{
 	top: 250px;
 }
+footer {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+.container_login {
+	width: 400px; /* Ширина элемента в пикселах */
+    padding: 10px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+	}
