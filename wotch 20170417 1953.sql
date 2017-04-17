@@ -1,7 +1,7 @@
 ﻿--
 -- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 7.2.58.0
 -- Домашняя страница продукта: http://www.devart.com/ru/dbforge/mysql/studio
--- Дата скрипта: 16.04.2017 16:13:41
+-- Дата скрипта: 17.04.2017 19:53:13
 -- Версия сервера: 5.6.34
 -- Версия клиента: 4.1
 --
@@ -42,7 +42,8 @@ CREATE TABLE modx_active_user_locks (
   UNIQUE INDEX ix_element_id (elementType, elementId, sid)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 158
+AUTO_INCREMENT = 211
+AVG_ROW_LENGTH = 64
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Contains data about locked elements.';
@@ -93,7 +94,7 @@ CREATE TABLE modx_categories (
   PRIMARY KEY (id)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 10
+AUTO_INCREMENT = 11
 AVG_ROW_LENGTH = 21
 CHARACTER SET utf8
 COLLATE utf8_general_ci
@@ -130,7 +131,8 @@ CREATE TABLE modx_documentgroup_names (
   UNIQUE INDEX name (name)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 3
+AVG_ROW_LENGTH = 20
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Contains data used for access permissions.';
@@ -152,8 +154,8 @@ CREATE TABLE modx_event_log (
   INDEX user (user)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 6
-AVG_ROW_LENGTH = 448
+AUTO_INCREMENT = 9
+AVG_ROW_LENGTH = 881
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Stores event and error logs';
@@ -174,6 +176,23 @@ COLLATE utf8_general_ci
 COMMENT = 'Cross reference bewteen keywords and content';
 
 --
+-- Описание для таблицы modx_log_history
+--
+DROP TABLE IF EXISTS modx_log_history;
+CREATE TABLE modx_log_history (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  user_name VARCHAR(100) NOT NULL,
+  ip VARCHAR(100) DEFAULT NULL,
+  stamp INT(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB
+AUTO_INCREMENT = 2
+AVG_ROW_LENGTH = 16384
+CHARACTER SET utf8
+COLLATE utf8_general_ci;
+
+--
 -- Описание для таблицы modx_manager_log
 --
 DROP TABLE IF EXISTS modx_manager_log;
@@ -189,7 +208,7 @@ CREATE TABLE modx_manager_log (
   PRIMARY KEY (id)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 464
+AUTO_INCREMENT = 647
 AVG_ROW_LENGTH = 46
 CHARACTER SET utf8
 COLLATE utf8_general_ci
@@ -514,7 +533,7 @@ CREATE TABLE modx_site_snippets (
   PRIMARY KEY (id)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 12
+AUTO_INCREMENT = 16
 AVG_ROW_LENGTH = 249
 CHARACTER SET utf8
 COLLATE utf8_general_ci
@@ -878,7 +897,8 @@ CREATE TABLE modx_web_user_attributes (
   INDEX userid (internalKey)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 2
+AVG_ROW_LENGTH = 188
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Contains information for web users.';
@@ -913,7 +933,8 @@ CREATE TABLE modx_web_users (
   UNIQUE INDEX username (username)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 2
+AVG_ROW_LENGTH = 60
 CHARACTER SET utf8
 COLLATE utf8_general_ci;
 
@@ -928,7 +949,8 @@ CREATE TABLE modx_webgroup_access (
   PRIMARY KEY (id)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 3
+AVG_ROW_LENGTH = 13
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Contains data used for web access permissions.';
@@ -944,7 +966,8 @@ CREATE TABLE modx_webgroup_names (
   UNIQUE INDEX name (name)
 )
 ENGINE = MYISAM
-AUTO_INCREMENT = 1
+AUTO_INCREMENT = 3
+AVG_ROW_LENGTH = 20
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Contains data used for web access permissions.';
@@ -952,24 +975,21 @@ COMMENT = 'Contains data used for web access permissions.';
 -- 
 -- Вывод данных для таблицы modx_active_user_locks
 --
-
--- Таблица wotch.modx_active_user_locks не содержит данных
+INSERT INTO modx_active_user_locks VALUES
+(210, 'r0nseorsn03en9jb6cdimq1q36', 1, 1, 5, 1492444799);
 
 -- 
 -- Вывод данных для таблицы modx_active_user_sessions
 --
 INSERT INTO modx_active_user_sessions VALUES
-('2h7pl151prljm4uhbmua8rol02', 1, 1492348113, '127.0.0.1');
+('r0nseorsn03en9jb6cdimq1q36', 1, 1492447400, '127.0.0.1');
 
 -- 
 -- Вывод данных для таблицы modx_active_users
 --
 INSERT INTO modx_active_users VALUES
-('6l50frie37e5utnm86gs95ft26', 1, 'admin', 1492343774, '78', 7),
-('tdbgbb9up2gf21e99a9lf5d2p5', 1, 'admin', 1492344058, '76', NULL),
-('dulv0bnntsl9r1mt8p6u41nkn7', 1, 'admin', 1492344095, '76', NULL),
-('clf88174742uo5lkqm4ipsgah0', 1, 'admin', 1492344302, '67', 1),
-('2h7pl151prljm4uhbmua8rol02', 1, 'admin', 1492346835, '67', 7);
+('tb41qb0rih3ucs5p6qo1rv8773', 1, 'admin', 1492443677, '22', 12),
+('r0nseorsn03en9jb6cdimq1q36', 1, 'admin', 1492444799, '16', 5);
 
 -- 
 -- Вывод данных для таблицы modx_categories
@@ -983,7 +1003,8 @@ INSERT INTO modx_categories VALUES
 (6, 'Manager and Admin'),
 (7, 'add'),
 (8, 'Navigation'),
-(9, 'Content');
+(9, 'Content'),
+(10, 'Login');
 
 -- 
 -- Вывод данных для таблицы modx_document_groups
@@ -994,8 +1015,8 @@ INSERT INTO modx_categories VALUES
 -- 
 -- Вывод данных для таблицы modx_documentgroup_names
 --
-
--- Таблица wotch.modx_documentgroup_names не содержит данных
+INSERT INTO modx_documentgroup_names VALUES
+(2, 'webusers', 0, 1);
 
 -- 
 -- Вывод данных для таблицы modx_event_log
@@ -1005,13 +1026,22 @@ INSERT INTO modx_event_log VALUES
 (2, 0, 1492344026, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения'''),
 (3, 0, 1492344083, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения'''),
 (4, 0, 1492344157, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения'''),
-(5, 0, 1492344325, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения''');
+(5, 0, 1492344325, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения'''),
+(6, 0, 1492435919, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения'''),
+(7, 0, 1492444099, 3, 0, 1, 'Snippet - loginza / PHP Parse Error', '<b>Trying to get property of non-object</b><br />\n<h2 style="color:red">&laquo; MODX Parse Error &raquo;</h2><div style="font-weight:bold;border:1px solid #ccc;padding:8px;color:#333;background-color:#ffffcd;margin-bottom:15px;">Error : include_once(C:\\OpenServer\\domains\\modx.ua\\assets\\snippets\\modxloginza\\profiletpl.php): failed to open stream: No such file or directory</div>\n<table class="grid">\n\t<thead>\n\t<tr class="">\n\t\t<th width="100px" >Error information</th>\n\t\t<th></th>\n\t</tr>\n\t</thead>\n\t<tr class="gridItem">\n\t\t<td>ErrorType[num]</td>\n\t\t<td>WARNING[2]</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>File</td>\n\t\t<td>C:\\OpenServer\\domains\\modx.ua\\assets\\snippets\\modxloginza\\snippet.loginza.php</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td>Line</td>\n\t\t<td>8</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>Source</td>\n\t\t<td>include_once MODX_BASE_PATH.''assets/snippets/modxloginza/profiletpl.php''; //шаблон профиля\n</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td>Current Snippet</td>\n\t\t<td>loginza</td>\n\t</tr>\n</table>\n<br />\n<table class="grid">\n\t<thead>\n\t<tr class="">\n\t\t<th width="100px" >Basic info</th>\n\t\t<th></th>\n\t</tr>\n\t</thead>\n\t<tr class="gridItem">\n\t\t<td>REQUEST_URI</td>\n\t\t<td>http://modx.ua/login.html</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>Resource</td>\n\t\t<td>[4] <a href="http://modx.ua/login.html" target="_blank">Вход</a></td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td>Referer</td>\n\t\t<td>http://modx.ua/</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>User Agent</td>\n\t\t<td>Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td>IP</td>\n\t\t<td>127.0.0.1</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>Current time</td>\n\t\t<td>2017-04-17 18:48:19</td>\n\t</tr>\n</table>\n<br />\n<table class="grid">\n\t<thead>\n\t<tr class="">\n\t\t<th width="100px" >Benchmarks</th>\n\t\t<th></th>\n\t</tr>\n\t</thead>\n\t<tr class="gridItem">\n\t\t<td>MySQL</td>\n\t\t<td>0.0022 s (3 Requests)</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>PHP</td>\n\t\t<td>0.1063 s</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td>Total</td>\n\t\t<td>0.1086 s</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td>Memory</td>\n\t\t<td>1.6446914672852 mb</td>\n\t</tr>\n</table>\n<br />\n<table class="grid">\n\t<thead>\n\t<tr class="">\n\t\t<th>Backtrace</th>\n\t</tr>\n\t</thead>\n\t<tr class="gridItem">\n\t\t<td><strong>DocumentParser->executeParser</strong>()<br />index.php on line 128</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td><strong>DocumentParser->prepareResponse</strong>()<br />manager/includes/document.parser.class.inc.php on line 2141</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td><strong>DocumentParser->outputContent</strong>()<br />manager/includes/document.parser.class.inc.php on line 2234</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td><strong>DocumentParser->parseDocumentSource</strong>(string $var1)<br />manager/includes/document.parser.class.inc.php on line 668</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td><strong>DocumentParser->evalSnippets</strong>(string $var1)<br />manager/includes/document.parser.class.inc.php on line 2003</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td><strong>DocumentParser->_get_snip_result</strong>(string $var1)<br />manager/includes/document.parser.class.inc.php on line 1408</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td><strong>DocumentParser->evalSnippet</strong>(string $var1, array $var2)<br />manager/includes/document.parser.class.inc.php on line 1466</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td><strong>eval</strong>()<br />manager/includes/document.parser.class.inc.php on line 1360</td>\n\t</tr>\n\t<tr class="gridItem">\n\t\t<td><strong>require</strong>(string $var1)<br />manager/includes/document.parser.class.inc.php(1360) : eval()''d code on line 1</td>\n\t</tr>\n\t<tr class="gridAltItem">\n\t\t<td><strong>include_once</strong>()<br />assets/snippets/modxloginza/snippet.loginza.php on line 8</td>\n\t</tr>\n</table>\n'),
+(8, 0, 1492444399, 3, 1, 0, 'Файл конфигурации все еще доступен для записи', 'Злоумышленники потенциально могут нанести вред вашему сайту. <strong>Серьёзно.</strong> Пожалуйста, установите права доступа к файлу конфигурации (/manager/includes/config.inc.php) в режим ''Только для чтения''');
 
 -- 
 -- Вывод данных для таблицы modx_keyword_xref
 --
 
 -- Таблица wotch.modx_keyword_xref не содержит данных
+
+-- 
+-- Вывод данных для таблицы modx_log_history
+--
+INSERT INTO modx_log_history VALUES
+(1, '', '127.0.0.1', 1492444195);
 
 -- 
 -- Вывод данных для таблицы modx_manager_log
@@ -1479,7 +1509,190 @@ INSERT INTO modx_manager_log VALUES
 (460, 1492346819, 1, 'admin', 76, '-', '-', 'Element management'),
 (461, 1492346830, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
 (462, 1492346835, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
-(463, 1492346835, 1, 'admin', 76, '-', '-', 'Element management');
+(463, 1492346835, 1, 'admin', 76, '-', '-', 'Element management'),
+(464, 1492435918, 1, 'admin', 58, '-', 'MODX', 'Logged in'),
+(465, 1492435927, 1, 'admin', 93, '-', '-', 'Backup Manager'),
+(466, 1492435986, 1, 'admin', 26, '-', '-', 'Refreshing site'),
+(467, 1492435987, 1, 'admin', 71, '-', '-', 'Searching'),
+(468, 1492435990, 1, 'admin', 4, '-', 'Новый ресурс', 'Creating a resource'),
+(469, 1492435991, 1, 'admin', 72, '-', 'Новый ресурс', 'Adding a weblink'),
+(470, 1492435997, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(471, 1492437879, 1, 'admin', 76, '-', 'Extras', 'Element management'),
+(472, 1492437882, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(473, 1492437976, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(474, 1492437976, 1, 'admin', 76, '-', '-', 'Element management'),
+(475, 1492438009, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(476, 1492438022, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(477, 1492438022, 1, 'admin', 76, '-', '-', 'Element management'),
+(478, 1492438038, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(479, 1492438044, 1, 'admin', 27, '4', 'Вход', 'Editing resource'),
+(480, 1492438049, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(481, 1492438068, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(482, 1492438068, 1, 'admin', 76, '-', '-', 'Element management'),
+(483, 1492438075, 1, 'admin', 27, '4', 'Вход', 'Editing resource'),
+(484, 1492438079, 1, 'admin', 76, '-', '-', 'Element management'),
+(485, 1492438085, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(486, 1492438100, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(487, 1492438100, 1, 'admin', 76, '-', '-', 'Element management'),
+(488, 1492438112, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(489, 1492438115, 1, 'admin', 76, '-', '-', 'Element management'),
+(490, 1492438119, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(491, 1492438127, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(492, 1492438127, 1, 'admin', 76, '-', '-', 'Element management'),
+(493, 1492438182, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(494, 1492438197, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(495, 1492438197, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(496, 1492438211, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(497, 1492438211, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(498, 1492438222, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(499, 1492438222, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(500, 1492438294, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(501, 1492438294, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(502, 1492438324, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(503, 1492438324, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(504, 1492438351, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(505, 1492438351, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(506, 1492438360, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(507, 1492438360, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(508, 1492438419, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(509, 1492438419, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(510, 1492438448, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(511, 1492438449, 1, 'admin', 76, '-', '-', 'Element management'),
+(512, 1492438451, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(513, 1492438469, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(514, 1492438480, 1, 'admin', 76, '-', '-', 'Element management'),
+(515, 1492438485, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(516, 1492438744, 1, 'admin', 27, '4', 'Вход', 'Editing resource'),
+(517, 1492438747, 1, 'admin', 76, '-', '-', 'Element management'),
+(518, 1492438750, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(519, 1492438818, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(520, 1492438818, 1, 'admin', 76, '-', '-', 'Element management'),
+(521, 1492438835, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+(522, 1492438840, 1, 'admin', 76, '-', '-', 'Element management'),
+(523, 1492438841, 1, 'admin', 78, '7', 'NAV', 'Editing Chunk (HTML Snippet)'),
+(524, 1492438858, 1, 'admin', 76, '-', '-', 'Element management'),
+(525, 1492438861, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(526, 1492438868, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(527, 1492438868, 1, 'admin', 76, '-', '-', 'Element management'),
+(528, 1492438903, 1, 'admin', 79, '7', 'NAV', 'Saving Chunk (HTML Snippet)'),
+(529, 1492438903, 1, 'admin', 76, '-', '-', 'Element management'),
+(530, 1492438907, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(531, 1492438912, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(532, 1492438912, 1, 'admin', 76, '-', '-', 'Element management'),
+(533, 1492438930, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(534, 1492438943, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(535, 1492438943, 1, 'admin', 76, '-', '-', 'Element management'),
+(536, 1492438984, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(537, 1492439000, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(538, 1492439000, 1, 'admin', 76, '-', '-', 'Element management'),
+(539, 1492439041, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(540, 1492439047, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(541, 1492439047, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(542, 1492439299, 1, 'admin', 76, '-', '-', 'Element management'),
+(543, 1492439302, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(544, 1492439315, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+(545, 1492439315, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(546, 1492439332, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+(547, 1492439333, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+(548, 1492439619, 1, 'admin', 72, '-', 'Новый ресурс', 'Adding a weblink'),
+(549, 1492439623, 1, 'admin', 83, '-', '-', 'Exporting a resource to HTML'),
+(550, 1492439624, 1, 'admin', 71, '-', '-', 'Searching'),
+(551, 1492439625, 1, 'admin', 4, '-', 'Новый ресурс', 'Creating a resource'),
+(552, 1492439626, 1, 'admin', 72, '-', 'Новый ресурс', 'Adding a weblink'),
+(553, 1492439627, 1, 'admin', 26, '-', '-', 'Refreshing site'),
+(554, 1492439634, 1, 'admin', 76, '-', '-', 'Element management'),
+(555, 1492439634, 1, 'admin', 31, '-', '-', 'Using file manager'),
+(556, 1492439636, 1, 'admin', 112, '1', 'Doc Manager', 'Execute module'),
+(557, 1492439637, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(558, 1492439638, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(559, 1492439639, 1, 'admin', 75, '-', '-', 'User/ role management'),
+(560, 1492439640, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(561, 1492439642, 1, 'admin', 112, '1', 'Doc Manager', 'Execute module'),
+(562, 1492439642, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(563, 1492439644, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+(564, 1492439645, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(565, 1492439773, 1, 'admin', 76, '-', '-', 'Element management'),
+(566, 1492439783, 1, 'admin', 22, '12', 'loginza', 'Editing Snippet'),
+(567, 1492439881, 1, 'admin', 76, '-', '-', 'Element management'),
+(568, 1492439886, 1, 'admin', 22, '14', 'WebLogin', 'Editing Snippet'),
+(569, 1492439888, 1, 'admin', 76, '-', '-', 'Element management'),
+(570, 1492439994, 1, 'admin', 76, '-', '-', 'Element management'),
+(571, 1492439995, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(572, 1492439997, 1, 'admin', 76, '-', '-', 'Element management'),
+(573, 1492439999, 1, 'admin', 31, '-', '-', 'Using file manager'),
+(574, 1492439999, 1, 'admin', 76, '-', '-', 'Element management'),
+(575, 1492440002, 1, 'admin', 75, '-', '-', 'User/ role management'),
+(576, 1492440003, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(577, 1492440004, 1, 'admin', 112, '1', 'Doc Manager', 'Execute module'),
+(578, 1492440005, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(579, 1492440085, 1, 'admin', 76, '-', '-', 'Element management'),
+(580, 1492440175, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(581, 1492440189, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(582, 1492440189, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(583, 1492440209, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(584, 1492440209, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(585, 1492440218, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(586, 1492440218, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(587, 1492440278, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(588, 1492440278, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(589, 1492440283, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(590, 1492440283, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(591, 1492440285, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(592, 1492440285, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(593, 1492440564, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(594, 1492440564, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(595, 1492440566, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(596, 1492440566, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(597, 1492440567, 1, 'admin', 92, '-', '-', 'Editing Access Permissions'),
+(598, 1492440567, 1, 'admin', 91, '-', '-', 'Editing Web Access Permissions'),
+(599, 1492440840, 1, 'admin', 76, '-', '-', 'Element management'),
+(600, 1492440842, 1, 'admin', 106, '-', '-', 'Viewing Modules'),
+(601, 1492440843, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(602, 1492441308, 1, 'admin', 76, '-', '-', 'Element management'),
+(603, 1492441310, 1, 'admin', 23, '-', 'Новый сниппет', 'Creating a new Snippet'),
+(604, 1492441353, 1, 'admin', 23, '-', 'Новый сниппет', 'Creating a new Snippet'),
+(605, 1492441356, 1, 'admin', 76, '-', '-', 'Element management'),
+(606, 1492441362, 1, 'admin', 22, '12', 'loginza', 'Editing Snippet'),
+(607, 1492441440, 1, 'admin', 24, '12', 'loginza', 'Saving Snippet'),
+(608, 1492441440, 1, 'admin', 76, '-', '-', 'Element management'),
+(609, 1492441613, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(610, 1492441617, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(611, 1492441617, 1, 'admin', 76, '-', '-', 'Element management'),
+(612, 1492441693, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(613, 1492441696, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(614, 1492441696, 1, 'admin', 76, '-', '-', 'Element management'),
+(615, 1492441724, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(616, 1492441733, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(617, 1492441733, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(618, 1492443138, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(619, 1492443158, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(620, 1492443158, 1, 'admin', 76, '-', '-', 'Element management'),
+(621, 1492443161, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(622, 1492443341, 1, 'admin', 76, '-', '-', 'Element management'),
+(623, 1492443343, 1, 'admin', 112, '2', 'Extras', 'Execute module'),
+(624, 1492443405, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(625, 1492443405, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(626, 1492443621, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(627, 1492443621, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(628, 1492443673, 1, 'admin', 76, '-', '-', 'Element management'),
+(629, 1492443677, 1, 'admin', 22, '12', 'loginza', 'Editing Snippet'),
+(630, 1492444399, 1, 'admin', 58, '-', 'MODX', 'Logged in'),
+(631, 1492444404, 1, 'admin', 76, '-', '-', 'Element management'),
+(632, 1492444411, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(633, 1492444439, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(634, 1492444440, 1, 'admin', 76, '-', '-', 'Element management'),
+(635, 1492444625, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(636, 1492444634, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(637, 1492444634, 1, 'admin', 76, '-', '-', 'Element management'),
+(638, 1492444663, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(639, 1492444670, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(640, 1492444670, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(641, 1492444737, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(642, 1492444737, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(643, 1492444771, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(644, 1492444771, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+(645, 1492444799, 1, 'admin', 20, '5', 'Авторизация', 'Saving template'),
+(646, 1492444799, 1, 'admin', 16, '5', 'Авторизация', 'Editing template');
 
 -- 
 -- Вывод данных для таблицы modx_manager_users
@@ -1528,7 +1741,7 @@ INSERT INTO modx_site_htmlsnippets VALUES
 (4, 'footer', 'низ сайта', 2, 'none', 4, 0, '<footer class="page-footer orange">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col l6 s12">\r\n          <h5 class="white-text">Поддержка сайта</h5>\r\n          <p class="grey-text text-lighten-4">2017</p>\r\n        </div>\r\n        <div class="col l3 s12">\r\n          <h5 class="white-text">Капков Илья</h5>\r\n          <ul>\r\n            <li><p class="grey-text text-lighten-4">Главный программист по обработке содержимого поддерживаемых сервисов</p></li>\r\n          </ul>\r\n        </div>\r\n        <div class="col l3 s12">\r\n          <h5 class="white-text">Диденко Игорь</h5>\r\n          <ul>\r\n            <li><p class="grey-text text-lighten-4">Гланый программист по герерации запросов к поддерживаемым сервисам</p></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class="footer-copyright">\r\n      <div class="container">\r\n      Курсовая работа 2017\r\n      </div>\r\n    </div>\r\n  </footer>\r\n\r\n\r\n  <!--  Scripts-->\r\n  <script src="/assets/js/jquery/jquery.min.js"></script>\r\n  <script src="/assets/js/wotch/materialize.js"></script>\r\n  <script src="/assets/js/wotch/init.js"></script>\r\n  <script src="/assets/js/wotch/login.js"></script>\r\n\r\n  </body>\r\n</html>', 0),
 (5, 'header', 'шапка', 2, 'none', 4, 0, '<!DOCTYPE html>\r\n\t<html lang="ru">\r\n\t<head>\r\n\t<meta http-equiv="Content-Type" content="text/html; charset=[(modx_charset)]" /> \r\n\t<title>Главная</title>\r\n\t[*noIndex*]\r\n\t<meta name="keywords" content="[*keyw*]" />\r\n\t<meta name="description" content="[*desc*]" />\r\n\t<base href="[(site_url)]"/>\r\n\t<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">\r\n\t<link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>\r\n  \t<link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>\r\n</head>\r\n<body>', 0),
 (6, 'mm_rules', 'Default ManagerManager rules.', 0, 'none', 5, 0, '// more example rules are in assets/plugins/managermanager/example_mm_rules.inc.php\r\n// example of how PHP is allowed - check that a TV named documentTags exists before creating rule\r\n\r\nmm_widget_showimagetvs(); // Показываем превью ТВ\r\n\r\nmm_createTab(''Для SEO'', ''seo'', '''', '''', '''', '''');\r\nmm_moveFieldsToTab(''titl,keyw,desc,seoOverride,noIndex,sitemap_changefreq,sitemap_priority,sitemap_exclude'', ''seo'', '''', '''');\r\nmm_widget_tags(''keyw'','',''); // Give blog tag editing capabilities to the ''documentTags (3)'' TV\r\n\r\n\r\n//mm_createTab(''Изображения'', ''photos'', '''', '''', '''', ''850'');\r\n//mm_moveFieldsToTab(''images,photos'', ''photos'', '''', '''');\r\n\r\n//mm_hideFields(''longtitle,description,link_attributes,menutitle,content'', '''', ''6,7'');\r\n\r\n//mm_hideTemplates(''0,5,8,9,11,12'', ''2,3'');\r\n\r\n//mm_hideTabs(''settings, access'', ''2'');\r\n\r\n//mm_widget_evogallery(1, Галерея, ''1,2,3'', 3);   // подключаем галерею \r\n//mm_galleryLink($fields, $roles, $templates, $moduleid);\r\n//mm_widget_evogallery($moduleid, $title, $roles, $templates);\r\n', 0),
-(7, 'NAV', 'навбар', 2, 'none', 0, 0, '<nav class="light-blue lighten-1" role="navigation">\r\n    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="/assets/images/logo2.png"></a>\r\n      <ul class="right hide-on-med-and-down">\r\n        <li><a href="[(site_url)]">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a class="waves-effect waves-light btn light-green" href="#modal">Вход</a></li>\r\n      </ul>\r\n\r\n      <ul id="nav-mobile" class="side-nav">\r\n\t\t<li><a href="[(site_url)]">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a class="waves-effect waves-light btn" href="#modal">Вход</a></li>\r\n      </ul>\r\n      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>\r\n    </div>\r\n</nav>\r\n\r\n  <!-- Modal Structure -->\r\n  <div id="modal" class="modal container_login">\r\n    <div class="modal-content">\r\n\t\t<div class="row">\r\n\t\t\t<h5 class="center-align">Авторизация</h5>\r\n\t\t\t\t<form class="col s12">\r\n\t\t\t\t  <div class="row">\r\n\t\t\t\t\t<div class="input-field col s12">\r\n\t\t\t\t\t  <i class="material-icons prefix">account_circle</i>\r\n\t\t\t\t\t  <input id="icon_prefix" type="text" class="validate">\r\n\t\t\t\t\t  <label for="icon_prefix">Логин</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class="input-field col s12">\r\n\t\t\t\t\t  <i class="material-icons prefix">lock</i>\r\n\t\t\t\t\t  <input id="icon_telephone" type="password" class="validate">\r\n\t\t\t\t\t  <label for="icon_telephone">Пароль</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t  </div>\r\n\t\t\t\t</form>\r\n\t\t\t </div>\r\n    </div>\r\n    <div class="modal-footer">\r\n      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Войти</a>\r\n    </div>\r\n  </div>', 0);
+(7, 'NAV', 'навбар', 2, 'none', 0, 0, '<nav class="light-blue lighten-1" role="navigation">\r\n    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="/assets/images/logo2.png"></a>\r\n      <ul class="right hide-on-med-and-down">\r\n        <li><a href="[(site_url)]">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a class="waves-effect waves-light btn light-green" href="[(site_url)]login.html">Вход</a></li>\r\n      </ul>\r\n\r\n      <ul id="nav-mobile" class="side-nav">\r\n\t\t<li><a href="[(site_url)]">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a class="waves-effect waves-light btn light-green" href="[(site_url)]login.html">Вход</a></li>\r\n      </ul>\r\n      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>\r\n    </div>\r\n</nav>', 0);
 
 -- 
 -- Вывод данных для таблицы modx_site_keywords
@@ -1644,7 +1857,11 @@ INSERT INTO modx_site_snippets VALUES
 (8, 'if', '<strong>1.3</strong> A simple conditional snippet. Allows for eq/neq/lt/gt/etc logic within templates, resources, chunks, etc.', 0, 8, 0, 'return require MODX_BASE_PATH.''assets/snippets/if/snippet.if.php'';', 0, '', ''),
 (9, 'phpthumb', '<strong>1.3</strong> PHPThumb creates thumbnails and altered images on the fly and caches them', 0, 9, 0, 'return require MODX_BASE_PATH.''assets/snippets/phpthumb/snippet.phpthumb.php'';\r\n', 0, '', ''),
 (10, 'UltimateParent', '<strong>2.0</strong> Travels up the document tree from a specified document and returns its "ultimate" non-root parent', 0, 8, 0, 'return require MODX_BASE_PATH.''assets/snippets/ultimateparent/snippet.ultimateparent.php'';', 0, '', ''),
-(11, 'Wayfinder', '<strong>2.0.5</strong> Completely template-driven and highly flexible menu builder', 0, 8, 0, 'return require MODX_BASE_PATH.''assets/snippets/wayfinder/snippet.wayfinder.php'';\n', 0, '', '');
+(11, 'Wayfinder', '<strong>2.0.5</strong> Completely template-driven and highly flexible menu builder', 0, 8, 0, 'return require MODX_BASE_PATH.''assets/snippets/wayfinder/snippet.wayfinder.php'';\n', 0, '', ''),
+(12, 'loginza', '<strong>0.5</strong> Log in via social networks. Uses in his work and snippet WebLogin', 0, 3, 0, 'return require MODX_BASE_PATH.''assets/snippets/modxloginza/snippet.loginza.php'';', 0, '{}', ' '),
+(13, 'WebChangePwd', '<strong>1.0</strong> Allows Web User to change their password from the front-end of the website', 0, 10, 0, 'return require MODX_BASE_PATH.''assets/snippets/weblogin/snippet.webchangepwd.php'';', 0, '', ''),
+(14, 'WebLogin', '<strong>1.1</strong> Allows webusers to login to protected pages in the website, supporting multiple user groups', 0, 10, 0, 'return require MODX_BASE_PATH.''assets/snippets/weblogin/snippet.weblogin.php'';', 0, '&loginhomeid=Login Home Id;string; &logouthomeid=Logout Home Id;string; &logintext=Login Button Text;string; &logouttext=Logout Button Text;string; &tpl=Template;string;', ''),
+(15, 'WebSignup', '<strong>1.1</strong> Basic Web User account creation/signup system', 0, 10, 0, 'return require MODX_BASE_PATH.''assets/snippets/weblogin/snippet.websignup.php'';', 0, '&tpl=Template;string;', '');
 
 -- 
 -- Вывод данных для таблицы modx_site_templates
@@ -1652,7 +1869,7 @@ INSERT INTO modx_site_snippets VALUES
 INSERT INTO modx_site_templates VALUES
 (3, 'Home', '', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div id="index-banner" class="parallax-container">\r\n    <div class="section no-pad-bot">\r\n      <div class="center">\r\n        <div class="row center">\r\n          <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 buttonf">БЫТЬ ПЕРВЫМ</a>\r\n        </div>\r\n        <br><br>\r\n\r\n      </div>\r\n    </div>\r\n    <div class="parallax"><img src="[(site_url)]assets/images/1.png" alt="Unsplashed background img 1"></div>\r\n  </div>\r\n  \r\n  <div class="section no-pad-bot" id="index-banner">\r\n    <div class="container">\r\n      <br><br>\r\n      <h1 class="header center orange-text">Как это работает?</h1>\r\n      <div class="row center">\r\n        <h5 class="header col s12 light">[*content*]</h5>\r\n      </div>\r\n      <br><br>\r\n\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div class="container">\r\n    <div class="section">\r\n\r\n      <!--   Icon Section   -->\r\n      \r\n<div class="row">\r\n        \r\n\t\r\n        <div class="col s12 m4">\r\n          <div class="icon-block">\r\n            <h2 class="center light-blue-text"><i class="material-icons">supervisor_account</i></h2>\r\n            <h5 class="center">Пользователи</h5>\r\n\r\n            <p class="light"><b>Нас уже (...)</b></p>\r\n            <p class="light"><b>Количество надзерателей (...)</b></p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class="col s12 m4">\r\n          <div class="icon-block">\r\n            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>\r\n            <h5 class="center">Планы на будущее</h5>\r\n\r\n            <p class="light"><b>Сделать сайт!</b></p>\r\n          </div>\r\n        </div>\r\n\r\n\t\t<div class="col s12 m4">\r\n\t\t\t  <div class="icon-block">\r\n\t\t\t\t<h2 class="center light-blue-text"><i class="material-icons">visibility</i></h2>\r\n\t\t\t\t<h5 class="center">Поддерживаемые сайты</h5>\r\n\t\t\t\t  <div class="chip">\r\n\t\t\t\t\t<img src="assets/images/olx.png" alt="Contact Person">\r\n\t\t\t\t\tOLX - на стадии разработки\r\n  \t\t\t\t</div>\r\n\t\t\t  </div>\r\n\t\t\t</div>\r\n\t\t  </div>\r\n\r\n    </div>\r\n    <br><br>\r\n\r\n    <div class="section">\r\n\r\n    </div>\r\n  </div>\r\n{{footer}}', 0, 1),
 (4, 'MODX startup - Bootstrap', '<strong>1.0</strong> Sample template in Bootstrap', 0, 1, '', 0, '<!DOCTYPE html>\n<html lang="[(lang_code)]">\n<head>\t\n\t<base href="[(site_url)]" />\n\t<meta charset="[(modx_charset)]" />\n\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t<meta http-equiv="X-UA-Compatible" content="IE=edge">\n\t<title>[*pagetitle*] / [(site_name)]</title>\n\t<@IF:[*description:isntEmpty*]><meta name="description" content="[*description*]"><@ENDIF>\n\t\n\t<link href="[(site_url)]<@IF:[*id:isnt(1)*]>[~[*id*]~]<@ENDIF>" rel="canonical">\n\t<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">\t\n\t<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">\n\t<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">\n\t\n\t<style> \n\thtml, body{background:#eee; font-family:''Open Sans'',sans-serif; line-height:1.8; font-size:14px;}\n\ta:focus{outline:none; outline-offset:0;}\n\th1{margin-top:15px;}\n\n\t.logo{float:left;}\n\t.logo img{max-width:200px; margin:10px 0; display:block; height:50px; width:auto;}\n\t.dropdown-menu{border-radius:0; border:0;}\n\t.dropdown-menu > li > a{padding-top:5px; padding-bottom:5px;}\n\n\t.navbar-collapse.collapse.in{border-bottom:10px solid #eee;}\n\t.navbar{min-height:0; background:#fff; margin-bottom:0;}\n\t.navbar.nav{margin-left:0;}\n\t.navbar.nav ul{padding-left:0;}\n\t.navbar-nav{margin:0;}\n\t.navbar-toggle{background:#fff; border:2px solid #eee; border-radius:0; position:fixed; z-index:99; right:0; top:7px; padding:12px 10px; margin-right:10px;}\n\t.navbar .navbar-toggle .icon-bar{background-color:#333;}\n\n\t.nav li a{text-transform:uppercase; color:#333; font-weight:500; font-size:110%;}\n\t.nav li li a{text-transform:none; font-weight:normal; font-size:100%;}\n\n\t.navbar{border:none; border-radius:0;}\n\t#navbar{padding:0;}\n\tul.nav > li > a:hover{background-color:#f5f5f5;}\n\n\t.affix{top:0px; width:100%; z-index:1000; background-color:#eee;}\n\t.affix + .affspacer{display:block; height:50px;}\n\n\t.box-shadow{-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175); box-shadow:0 6px 12px rgba(0,0,0,.175);}\n\n\t.container {max-width:970px; margin:0 12px;}\n\t.top .col-sm-12{padding-left:0; padding-right:0;}\n\n\t#ajaxSearch_input,\n\t#username,\n\t#password{width:100%!important;}\n\t#forgotpsswd{clear:both;}\n\tinput.button[type="submit"]{display:block;}\n\tlabel.checkbox{display:inline-block; margin-left:10px;}\n\tlabel, legend{font-weight:400;}\n\t#ajaxSearch_form { position:relative; }\n\t#searchClose { display:none !important; }\n    #indicator { position:absolute; top:9px; right:12px; z-index:10; opacity:.75; }\n\n\th2{font-size:22px;}\n\t.bread{padding:1em 0 0 0;}\n\t.mem{color:#aaa; text-align:center; padding:1em 0 2em;}\n\n\tsection.main .container{background-color:#fff; padding-bottom:20px;}\n\tfooter.footer .container{background-color:#000; color:#fff; line-height:40px;}\n\n\tsection.main ul{list-style:none; margin:0 0 1em 0; padding:0;}\n\tsection.main ul li{padding-left:1em;}\n\tsection.main ul li:before{content:''\\2022''; position:absolute; line-height:1.85em; margin-left:-1em;}\n\n\t.footer{text-align:center;}\n\t.footer .text-right{text-align:center;}\n\n\t/* JOT */\n\t.jot-comment{padding:5px 10px;}\n\t.jot-row-author{background-color:#dddddd;}\n\t.jot-row-alt{background-color:#f9f9f9;}\n\t.jot-row{background-color:#eeeeee;}\n\t.jot-row-up{border:1px solid #333!important;}\n\t.jot-row-up.panel-primary > .panel-heading{background-color:#333!important; border-color:#333!important;}\n\t.jot-extra{font-size:75%;}\n\t.jot-poster{font-size:inherit!important;}\n\n\t.ditto_summaryPost img{max-width:100%; height:auto; margin:10px 0 5px; display:block;}\n\t.ditto_summaryPost{padding-top:10px; padding-bottom:15px; border-bottom:1px solid #eee;}\n\n\t/* Larger than mobile */\n\t@media (min-width:320px) {\n\n\t}\n\n\t/* Larger than phablet */\n\t@media (min-width:480px) {\n\n\t}\n\n\t/* Larger than tablet */\n\t@media (min-width:768px) {\n\n\t\t.container{margin:0 auto;}\n\t\t.logo{padding-left:15px;}\n\t\t.logo img{ max-width:240px; margin:0; display:block; height:100px;}\n\n\t\t.navbar{background:transparent;}\n\t\t.navbar.affix{background:#eee;}\n\t\t.navbar-collapse.collapse.in{border-bottom:0;}\n\n\t\t.footer{text-align:left;}\n\t\t.footer .text-right{text-align:right;}\n\n\t\t.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {padding-left:35px; padding-right:35px;}\n\n\t}\n\t</style>\n\t\n\t<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>\n</head>\n<body>\n\t<section class="top">\n\t\t<div class="container">\n\t\t\t<div class="row">\n\t\t\t\t<div class="col-sm-12" itemscope itemtype="http://schema.org/Organization">\n\n\t\t\t\t\t<a class="logo" href="[~[(site_start)]~]" title="[(site_name)]" itemprop="url">\n\t\t\t\t\t\t<img src="[(site_url)]assets/images/modx-logo.png" itemprop="logo" width="240" height="100" alt="[(site_name)]" />\n\t\t\t\t\t</a>\n\n\t\t\t\t\t<div class="clearfix"></div>\n\n\t\t\t\t\t<nav class="navbar" role="navigation" data-spy="affix" data-offset-top="100">\n\n\t\t\t\t\t\t<div class="navbar-header">\n\t\t\t\t\t\t\t<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">\n\t\t\t\t\t\t\t\t<span class="sr-only">Toggle navigation</span>\n\t\t\t\t\t\t\t\t<span class="icon-bar"></span>\n\t\t\t\t\t\t\t\t<span class="icon-bar"></span>\n\t\t\t\t\t\t\t\t<span class="icon-bar"></span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div id="navbar" class="navbar-collapse collapse">\n\t\t\t\t\t\t\t[[Wayfinder? \n\t\t\t\t\t\t\t&startId=`0` \n\t\t\t\t\t\t\t&level=`2` \n\t\t\t\t\t\t\t&removeNewLines=`1`\n\t\t\t\t\t\t\t&outerTpl=`@CODE:<ul class="nav navbar-nav">[+wf.wrapper+]</ul>`\n\t\t\t\t\t\t\t&rowTpl=`@CODE:<li[+wf.classes+]><a href="[+wf.link+]" [+wf.attributes+]>[+wf.linktext+]</a>[+wf.wrapper+]</li>`\n\t\t\t\t\t\t\t&innerTpl=`@CODE:<ul class="dropdown-menu">[+wf.wrapper+]</ul>`\n\t\t\t\t\t\t\t&innerRowTpl=`@CODE:<li[+wf.classes+]><a href="[+wf.link+]">[+wf.linktext+]</a></li>`\n\t\t\t\t\t\t\t&parentRowTpl=`@CODE:<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="[+wf.title+]">[+wf.linktext+] <b class="caret"></b></a>[+wf.wrapper+]</li>`\n\t\t\t\t\t\t\t&activeParentRowTpl=`@CODE:<li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#" title="[+wf.title+]">[+wf.linktext+] <b class="caret"></b></a>[+wf.wrapper+]</li>`\n\t\t\t\t\t\t\t]]\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</nav>\n\t\t\t\t\t<div class="affspacer"></div>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t</section>\n\n\t\t<section class="main">\n\t\t\t<div class="container">\n\n\t\t\t\t<div class="row">\n\t\t\t\t\t<div class="col-sm-12">\n\t\t\t\t\t\t<div class="bread">\n\t\t\t\t\t\t\t[[Breadcrumbs]]\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="row">\n\n\t\t\t\t\t<div class="col-sm-8">\n\t\t\t\t\t\t<h1>[*#longtitle*]</h1>\n\t\t\t\t\t\t[*#content*]\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<aside class="col-sm-4">\n\t\t\t\t\t\t<div class="search">\n\t\t\t\t\t\t\t<h2>Search</h2>\n\t\t\t\t\t\t\t[!AjaxSearch? \n\t\t\t\t\t\t\t&ajaxSearch=`1` \n\t\t\t\t\t\t\t&addJscript=`0` \n\t\t\t\t\t\t\t&showIntro=`0` \n\t\t\t\t\t\t\t&ajaxMax=`5` \n\t\t\t\t\t\t\t&extract=`1`\n\t\t\t\t\t\t\t&jscript=`jquery`\n\t\t\t\t\t\t\t&tplInput=`AjaxSearch_tplInput`\n\t\t\t\t\t\t\t&tplAjaxGrpResult=`AjaxSearch_tplAjaxGrpResult`\n\t\t\t\t\t\t\t&tplAjaxResults=`AjaxSearch_tplAjaxResults`\n\t\t\t\t\t\t\t&tplAjaxResult=`AjaxSearch_tplAjaxResult`\n\t\t\t\t\t\t\t&showResults=`1`\n\t\t\t\t\t\t\t&liveSearch=`0`\n\t\t\t\t\t\t\t!]\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<h2>News:</h2>\n\t\t\t\t\t\t[[DocLister? \n\t\t\t\t\t\t&parents=`2` \n\t\t\t\t\t\t&display=`2`\n\t\t\t\t\t\t&total=`20` \n\t\t\t\t\t\t&removeChunk=`Comments` \n\t\t\t\t\t\t&tpl=`nl_sidebar`\n\t\t\t\t\t\t]]\n\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h2>Most Recent:</h2>\n\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t[[DocLister? \n\t\t\t\t\t\t\t\t&showInMenuOnly=`1` \n\t\t\t\t\t\t\t\t&parents=`0`\n\t\t\t\t\t\t\t\t&display=`5`\n\t\t\t\t\t\t\t\t&tpl=`@CODE:<li><a href="[+url+]" title="[+pagetitle+]">[+pagetitle+]</a> <span class="date">[+date+]</span></li>`\n\t\t\t\t\t\t\t\t]]\n\t\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<br/>\n\t\t\t\t\t\t<h2>Login:</h2>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t[!WebLogin? \n\t\t\t\t\t\t\t&tpl=`WebLogin_tplForm` \n\t\t\t\t\t\t\t&loginhomeid=`[(site_start)]`\n\t\t\t\t\t\t\t&focusInput=`0`\n\t\t\t\t\t\t\t!]\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</aside>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</section>\n\n\t\t<footer class="footer">\n\t\t\t<div class="container">\n\t\t\t\t<div class="row">\n\t\t\t\t\t<div class="col-sm-6">\n\t\t\t\t\t\t<a href="https://modx.com" title="Learn more about MODX">MODX</a> Starter-Template &copy;2006-[[$_SERVER[''REQUEST_TIME'']:dateFormat=`Y` ]]\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="col-sm-6 text-right">\n\t\t\t\t\t\tBuilt with <a href="http://www.getbootstrap.com" target="_blank">Bootstrap</a> framework.\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\n\t\t<div class="container mem">\n\t\t\t<small>Memory: [^m^], MySQL: [^qt^], [^q^] request(s), PHP: [^p^], total: [^t^], document retrieved from [^s^]. </small>\n\t</div>\n\n\t<!-- Scripts\n\t–––––––––––––––––––––––––––––––––––––––––––––––––– -->\t\n\n\t<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>\n\t<!--[if lt IE 9]>\n\t\t<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>\n\t\t<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>\n\t<![endif]-->\n\t\n</body>\n</html>', 0, 1),
-(5, 'Авторизация', ' login', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n\t<div class="container_login">\r\n\t\t<div class="section">\r\n\t\t\t<div class="row">\r\n\t\t\t\t<form class="col s6">\r\n\t\t\t\t  <div class="row">\r\n\t\t\t\t\t<div class="input-field col s6">\r\n\t\t\t\t\t  <i class="material-icons prefix">account_circle</i>\r\n\t\t\t\t\t  <input id="icon_prefix" type="text" class="validate">\r\n\t\t\t\t\t  <label for="icon_prefix">First Name</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class="input-field col s6">\r\n\t\t\t\t\t  <i class="material-icons prefix">phone</i>\r\n\t\t\t\t\t  <input id="icon_telephone" type="tel" class="validate">\r\n\t\t\t\t\t  <label for="icon_telephone">Telephone</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t  </div>\r\n\t\t\t\t</form>\r\n\t\t\t </div>\r\n\t\t</div>\r\n\t</div>', 0, 1);
+(5, 'Авторизация', ' login', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div>\r\n\t<div class="container_login">\r\n\t\t\t<div class="row">\r\n\t\t\t\t<form class="col s12">\r\n\t\t\t\t  <div class="row">\r\n\t\t\t\t\t<div class="input-field col s12">\r\n\t\t\t\t\t  <i class="material-icons prefix">account_circle</i>\r\n\t\t\t\t\t  <input id="icon_prefix" type="text" class="validate">\r\n\t\t\t\t\t  <label for="icon_prefix">Email</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class="input-field col s12">\r\n\t\t\t\t\t  <i class="material-icons prefix">lock</i>\r\n\t\t\t\t\t  <input id="icon_telephone" type="tel" class="validate">\r\n\t\t\t\t\t  <label for="icon_telephone">Пароль</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t  </div>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<input class="waves-effect waves-light btn light-green" type="submit" value="Войти">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t[!loginza? &type=`profile`!]\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</form>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n{{footer}}', 0, 1);
 
 -- 
 -- Вывод данных для таблицы modx_site_tmplvar_access
@@ -1971,7 +2188,7 @@ INSERT INTO modx_system_settings VALUES
 -- Вывод данных для таблицы modx_user_attributes
 --
 INSERT INTO modx_user_attributes VALUES
-(1, 1, 'Admin', 1, 'ipra-8@mail.ru', '', '', 0, 0, 0, 7, 1492344157, 1492344324, 0, '2h7pl151prljm4uhbmua8rol02', 0, 0, '', '', '', '', '', '', '', '');
+(1, 1, 'Admin', 1, 'ipra-8@mail.ru', '', '', 0, 0, 0, 9, 1492435918, 1492444399, 0, 'r0nseorsn03en9jb6cdimq1q36', 0, 0, '', '', '', '', '', '', '', '');
 
 -- 
 -- Вывод данных для таблицы modx_user_messages
@@ -2002,8 +2219,8 @@ INSERT INTO modx_user_roles VALUES
 -- 
 -- Вывод данных для таблицы modx_web_user_attributes
 --
-
--- Таблица wotch.modx_web_user_attributes не содержит данных
+INSERT INTO modx_web_user_attributes VALUES
+(1, 1, 'ipra ipra', 0, 'iprahtc2@gmail.com', '', '', 0, 0, 0, 1, 0, 1492444194, 0, 'tb41qb0rih3ucs5p6qo1rv8773', 0, 0, '', '', '', '', '', '', 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50', '');
 
 -- 
 -- Вывод данных для таблицы modx_web_user_settings
@@ -2014,20 +2231,20 @@ INSERT INTO modx_user_roles VALUES
 -- 
 -- Вывод данных для таблицы modx_web_users
 --
-
--- Таблица wotch.modx_web_users не содержит данных
+INSERT INTO modx_web_users VALUES
+(1, '109141084637326271700@plus.google.com', '0f9d94709990', '');
 
 -- 
 -- Вывод данных для таблицы modx_webgroup_access
 --
-
--- Таблица wotch.modx_webgroup_access не содержит данных
+INSERT INTO modx_webgroup_access VALUES
+(2, 2, 2);
 
 -- 
 -- Вывод данных для таблицы modx_webgroup_names
 --
-
--- Таблица wotch.modx_webgroup_names не содержит данных
+INSERT INTO modx_webgroup_names VALUES
+(2, 'webusers');
 
 -- 
 -- Восстановить предыдущий режим SQL (SQL mode)
