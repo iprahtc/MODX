@@ -59,7 +59,13 @@ footer.page-footer {
 	top: 250px;
 }
 .container_login {
-	width: 400px; /* Ширина элемента в пикселах */
+	width: 500px; /* Ширина элемента в пикселах */
     padding: 10px; /* Поля вокруг текста */
     margin: 10% auto;
-	}
+}
+
+#emailex {
+	
+	color: red !important;
+	visibility: hidden;
+}
