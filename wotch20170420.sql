@@ -1,32 +1,3 @@
-﻿--
--- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 7.2.58.0
--- Домашняя страница продукта: http://www.devart.com/ru/dbforge/mysql/studio
--- Дата скрипта: 17.04.2017 19:53:13
--- Версия сервера: 5.6.34
--- Версия клиента: 4.1
---
-
-
--- 
--- Отключение внешних ключей
--- 
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-
--- 
--- Установить режим SQL (SQL mode)
--- 
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
--- 
--- Установка кодировки, с использованием которой клиент будет посылать запросы на сервер
---
-SET NAMES 'utf8';
-
--- 
--- Установка базы данных по умолчанию
---
-USE wotch;
-
 -- --------------------------------------------------------
 -- Хост:                         127.0.0.1
 -- Версия сервера:               5.6.31 - MySQL Community Server (GPL)
@@ -54,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `modx_active_users` (
 -- Дамп данных таблицы wotch.modx_active_users: 2 rows
 /*!40000 ALTER TABLE `modx_active_users` DISABLE KEYS */;
 INSERT INTO `modx_active_users` (`sid`, `internalKey`, `username`, `lasthit`, `action`, `id`) VALUES
-	('2v3oth5hmsf3i7ehjamiagjg43', 1, 'admin', 1492542388, '78', 8),
+	('2v3oth5hmsf3i7ehjamiagjg43', 1, 'admin', 1492717427, '78', 8),
 	('mcjdrv7r7kd0bdka55tllfuin5', 1, 'admin', 1492511422, '67', 6);
 /*!40000 ALTER TABLE `modx_active_users` ENABLE KEYS */;
 
@@ -70,13 +41,14 @@ CREATE TABLE IF NOT EXISTS `modx_active_user_locks` (
   `lasthit` int(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ix_element_id` (`elementType`,`elementId`,`sid`)
-) ENGINE=MyISAM AUTO_INCREMENT=282 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=64 COMMENT='Contains data about locked elements.';
+) ENGINE=MyISAM AUTO_INCREMENT=361 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=64 COMMENT='Contains data about locked elements.';
 
--- Дамп данных таблицы wotch.modx_active_user_locks: 2 rows
+-- Дамп данных таблицы wotch.modx_active_user_locks: 3 rows
 /*!40000 ALTER TABLE `modx_active_user_locks` DISABLE KEYS */;
 INSERT INTO `modx_active_user_locks` (`id`, `sid`, `internalKey`, `elementType`, `elementId`, `lasthit`) VALUES
-	(280, '2v3oth5hmsf3i7ehjamiagjg43', 1, 1, 6, 1492542241),
-	(281, '2v3oth5hmsf3i7ehjamiagjg43', 1, 3, 8, 1492542388);
+	(283, '2v3oth5hmsf3i7ehjamiagjg43', 1, 4, 12, 1492581286),
+	(359, '2v3oth5hmsf3i7ehjamiagjg43', 1, 1, 6, 1492717424),
+	(360, '2v3oth5hmsf3i7ehjamiagjg43', 1, 3, 8, 1492717427);
 /*!40000 ALTER TABLE `modx_active_user_locks` ENABLE KEYS */;
 
 
@@ -93,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `modx_active_user_sessions` (
 -- Дамп данных таблицы wotch.modx_active_user_sessions: 1 rows
 /*!40000 ALTER TABLE `modx_active_user_sessions` DISABLE KEYS */;
 INSERT INTO `modx_active_user_sessions` (`sid`, `internalKey`, `lasthit`, `ip`) VALUES
-	('2v3oth5hmsf3i7ehjamiagjg43', 1, 1492544212, '127.0.0.1');
+	('2v3oth5hmsf3i7ehjamiagjg43', 1, 1492717428, '127.0.0.1');
 /*!40000 ALTER TABLE `modx_active_user_sessions` ENABLE KEYS */;
 
 
@@ -229,9 +201,9 @@ CREATE TABLE IF NOT EXISTS `modx_manager_log` (
   `itemname` varchar(255) DEFAULT NULL,
   `message` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=801 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=46 COMMENT='Contains a record of user interaction.';
+) ENGINE=MyISAM AUTO_INCREMENT=985 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=46 COMMENT='Contains a record of user interaction.';
 
--- Дамп данных таблицы wotch.modx_manager_log: 800 rows
+-- Дамп данных таблицы wotch.modx_manager_log: 984 rows
 /*!40000 ALTER TABLE `modx_manager_log` DISABLE KEYS */;
 INSERT INTO `modx_manager_log` (`id`, `timestamp`, `internalKey`, `username`, `action`, `itemid`, `itemname`, `message`) VALUES
 	(1, 1491595120, 1, 'admin', 58, '-', 'MODX', 'Logged in'),
@@ -1033,7 +1005,191 @@ INSERT INTO `modx_manager_log` (`id`, `timestamp`, `internalKey`, `username`, `a
 	(797, 1492542241, 1, 'admin', 20, '6', 'registration', 'Saving template'),
 	(798, 1492542241, 1, 'admin', 16, '6', 'registration', 'Editing template'),
 	(799, 1492542388, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
-	(800, 1492542388, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)');
+	(800, 1492542388, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(801, 1492581179, 1, 'admin', 76, '-', '-', 'Element management'),
+	(802, 1492581186, 1, 'admin', 76, '-', '-', 'Element management'),
+	(803, 1492581224, 1, 'admin', 22, '5', 'DocLister', 'Editing Snippet'),
+	(804, 1492581243, 1, 'admin', 76, '-', '-', 'Element management'),
+	(805, 1492581248, 1, 'admin', 23, '-', 'Новый сниппет', 'Creating a new Snippet'),
+	(806, 1492581276, 1, 'admin', 76, '-', '-', 'Element management'),
+	(807, 1492581286, 1, 'admin', 22, '12', 'loginza', 'Editing Snippet'),
+	(808, 1492589332, 1, 'admin', 75, '-', '-', 'User/ role management'),
+	(809, 1492589335, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+	(810, 1492589351, 1, 'admin', 88, '1', '109141084637326271700@plus.google.com', 'Editing web user'),
+	(811, 1492589361, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+	(812, 1492591022, 1, 'admin', 87, '-', 'Новый веб-пользователь', 'Create new web user'),
+	(813, 1492591177, 1, 'admin', 89, '-', 'igor', 'Saving web user'),
+	(814, 1492591190, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+	(815, 1492592544, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+	(816, 1492592560, 1, 'admin', 76, '-', '-', 'Element management'),
+	(817, 1492592593, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(818, 1492592617, 1, 'admin', 76, '-', '-', 'Element management'),
+	(819, 1492592624, 1, 'admin', 22, '6', 'eForm', 'Editing Snippet'),
+	(820, 1492592700, 1, 'admin', 76, '-', '-', 'Element management'),
+	(821, 1492592716, 1, 'admin', 22, '14', 'WebLogin', 'Editing Snippet'),
+	(822, 1492592735, 1, 'admin', 76, '-', '-', 'Element management'),
+	(823, 1492592741, 1, 'admin', 23, '-', 'Новый сниппет', 'Creating a new Snippet'),
+	(824, 1492592948, 1, 'admin', 24, '-', 'exist_orAdd_user', 'Saving Snippet'),
+	(825, 1492592948, 1, 'admin', 76, '-', '-', 'Element management'),
+	(826, 1492592960, 1, 'admin', 22, '16', 'exist_orAdd_user', 'Editing Snippet'),
+	(827, 1492592983, 1, 'admin', 76, '-', '-', 'Element management'),
+	(828, 1492592989, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(829, 1492593004, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(830, 1492593004, 1, 'admin', 76, '-', '-', 'Element management'),
+	(831, 1492593040, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(832, 1492593054, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(833, 1492593054, 1, 'admin', 76, '-', '-', 'Element management'),
+	(834, 1492593346, 1, 'admin', 76, '-', '-', 'Element management'),
+	(835, 1492593365, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(836, 1492593478, 1, 'admin', 76, '-', '-', 'Element management'),
+	(837, 1492593491, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(838, 1492593499, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(839, 1492593614, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(840, 1492593614, 1, 'admin', 76, '-', '-', 'Element management'),
+	(841, 1492593618, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(842, 1492593668, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(843, 1492593668, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(844, 1492595311, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(845, 1492595379, 1, 'admin', 76, '-', '-', 'Element management'),
+	(846, 1492595393, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+	(847, 1492595425, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(848, 1492595425, 1, 'admin', 76, '-', '-', 'Element management'),
+	(849, 1492595452, 1, 'admin', 16, '5', 'Авторизация', 'Editing template'),
+	(850, 1492595463, 1, 'admin', 76, '-', '-', 'Element management'),
+	(851, 1492595472, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(852, 1492676084, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+	(853, 1492676103, 1, 'admin', 76, '-', '-', 'Element management'),
+	(854, 1492676150, 1, 'admin', 99, '-', '-', 'Manage Web Users'),
+	(855, 1492676242, 1, 'admin', 76, '-', '-', 'Element management'),
+	(856, 1492676256, 1, 'admin', 22, '16', 'exist_orAdd_user', 'Editing Snippet'),
+	(857, 1492676392, 1, 'admin', 24, '16', 'exist_orAdd_user', 'Saving Snippet'),
+	(858, 1492676392, 1, 'admin', 76, '-', '-', 'Element management'),
+	(859, 1492676398, 1, 'admin', 22, '6', 'eForm', 'Editing Snippet'),
+	(860, 1492676556, 1, 'admin', 76, '-', '-', 'Element management'),
+	(861, 1492680347, 1, 'admin', 76, '-', '-', 'Element management'),
+	(862, 1492680348, 1, 'admin', 76, '-', '-', 'Element management'),
+	(863, 1492680354, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(864, 1492680391, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(865, 1492680397, 1, 'admin', 76, '-', '-', 'Element management'),
+	(866, 1492680403, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(867, 1492680482, 1, 'admin', 76, '-', '-', 'Element management'),
+	(868, 1492681790, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(869, 1492681898, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(870, 1492681898, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(871, 1492681975, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(872, 1492681976, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(873, 1492683199, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(874, 1492683208, 1, 'admin', 76, '-', '-', 'Element management'),
+	(875, 1492683221, 1, 'admin', 78, '5', 'header', 'Editing Chunk (HTML Snippet)'),
+	(876, 1492683275, 1, 'admin', 76, '-', '-', 'Element management'),
+	(877, 1492683279, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+	(878, 1492683377, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+	(879, 1492683377, 1, 'admin', 76, '-', '-', 'Element management'),
+	(880, 1492683514, 1, 'admin', 78, '4', 'footer', 'Editing Chunk (HTML Snippet)'),
+	(881, 1492683527, 1, 'admin', 79, '4', 'footer', 'Saving Chunk (HTML Snippet)'),
+	(882, 1492683528, 1, 'admin', 76, '-', '-', 'Element management'),
+	(883, 1492683553, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(884, 1492683553, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(885, 1492683646, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(886, 1492683646, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(887, 1492683713, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(888, 1492683713, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(889, 1492683718, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(890, 1492683718, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(891, 1492707332, 1, 'admin', 76, '-', '-', 'Element management'),
+	(892, 1492707336, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(893, 1492707353, 1, 'admin', 76, '-', '-', 'Element management'),
+	(894, 1492707365, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(895, 1492707597, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(896, 1492707597, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(897, 1492707675, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(898, 1492707675, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(899, 1492708014, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(900, 1492708014, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(901, 1492708204, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(902, 1492708204, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(903, 1492708235, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(904, 1492708235, 1, 'admin', 76, '-', '-', 'Element management'),
+	(905, 1492708240, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(906, 1492708321, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(907, 1492708321, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(908, 1492708420, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(909, 1492708420, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(910, 1492708463, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(911, 1492708463, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(912, 1492708560, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(913, 1492708560, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(914, 1492708562, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(915, 1492708562, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(916, 1492708578, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(917, 1492708578, 1, 'admin', 76, '-', '-', 'Element management'),
+	(918, 1492708581, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(919, 1492708590, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(920, 1492708590, 1, 'admin', 76, '-', '-', 'Element management'),
+	(921, 1492708708, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(922, 1492708708, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(923, 1492708712, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(924, 1492708753, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(925, 1492708754, 1, 'admin', 76, '-', '-', 'Element management'),
+	(926, 1492708825, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(927, 1492708825, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(928, 1492709023, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(929, 1492709122, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(930, 1492709123, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(931, 1492710582, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(932, 1492710582, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(933, 1492714510, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(934, 1492714510, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(935, 1492714546, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(936, 1492714546, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(937, 1492714888, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(938, 1492714895, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(939, 1492714900, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(940, 1492714900, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(941, 1492715383, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(942, 1492715383, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(943, 1492715867, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(944, 1492715867, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(945, 1492715961, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(946, 1492715961, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(947, 1492716078, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(948, 1492716078, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(949, 1492716113, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(950, 1492716113, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(951, 1492716143, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(952, 1492716143, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(953, 1492716215, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(954, 1492716215, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(955, 1492716252, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(956, 1492716252, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(957, 1492716430, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(958, 1492716430, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(959, 1492716472, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(960, 1492716472, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(961, 1492716531, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(962, 1492716531, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(963, 1492716612, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(964, 1492716612, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(965, 1492716663, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(966, 1492716664, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(967, 1492717058, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(968, 1492717058, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(969, 1492717125, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(970, 1492717125, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(971, 1492717189, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(972, 1492717189, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(973, 1492717231, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(974, 1492717231, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(975, 1492717284, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(976, 1492717284, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(977, 1492717339, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(978, 1492717339, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(979, 1492717360, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(980, 1492717360, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)'),
+	(981, 1492717424, 1, 'admin', 20, '6', 'registration', 'Saving template'),
+	(982, 1492717424, 1, 'admin', 16, '6', 'registration', 'Editing template'),
+	(983, 1492717427, 1, 'admin', 79, '8', 'exist_login', 'Saving Chunk (HTML Snippet)'),
+	(984, 1492717428, 1, 'admin', 78, '8', 'exist_login', 'Editing Chunk (HTML Snippet)');
 /*!40000 ALTER TABLE `modx_manager_log` ENABLE KEYS */;
 
 
@@ -1194,7 +1350,7 @@ INSERT INTO `modx_site_htmlsnippets` (`id`, `name`, `description`, `editor_type`
 	(5, 'header', 'шапка', 2, 'none', 4, 0, '<!DOCTYPE html>\r\n	<html lang="ru">\r\n	<head>\r\n	<meta http-equiv="Content-Type" content="text/html; charset=[(modx_charset)]" /> \r\n	<title>Главная</title>\r\n	[*noIndex*]\r\n	<meta name="keywords" content="[*keyw*]" />\r\n	<meta name="description" content="[*desc*]" />\r\n	<base href="[(site_url)]"/>\r\n	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">\r\n	<link href="/assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>\r\n  	<link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>\r\n</head>\r\n<body>', 0),
 	(6, 'mm_rules', 'Default ManagerManager rules.', 0, 'none', 5, 0, '// more example rules are in assets/plugins/managermanager/example_mm_rules.inc.php\r\n// example of how PHP is allowed - check that a TV named documentTags exists before creating rule\r\n\r\nmm_widget_showimagetvs(); // Показываем превью ТВ\r\n\r\nmm_createTab(\'Для SEO\', \'seo\', \'\', \'\', \'\', \'\');\r\nmm_moveFieldsToTab(\'titl,keyw,desc,seoOverride,noIndex,sitemap_changefreq,sitemap_priority,sitemap_exclude\', \'seo\', \'\', \'\');\r\nmm_widget_tags(\'keyw\',\',\'); // Give blog tag editing capabilities to the \'documentTags (3)\' TV\r\n\r\n\r\n//mm_createTab(\'Изображения\', \'photos\', \'\', \'\', \'\', \'850\');\r\n//mm_moveFieldsToTab(\'images,photos\', \'photos\', \'\', \'\');\r\n\r\n//mm_hideFields(\'longtitle,description,link_attributes,menutitle,content\', \'\', \'6,7\');\r\n\r\n//mm_hideTemplates(\'0,5,8,9,11,12\', \'2,3\');\r\n\r\n//mm_hideTabs(\'settings, access\', \'2\');\r\n\r\n//mm_widget_evogallery(1, Галерея, \'1,2,3\', 3);   // подключаем галерею \r\n//mm_galleryLink($fields, $roles, $templates, $moduleid);\r\n//mm_widget_evogallery($moduleid, $title, $roles, $templates);\r\n', 0),
 	(7, 'NAV', 'навбар', 2, 'none', 0, 0, '<nav class="light-blue lighten-1" role="navigation">\r\n    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="/assets/images/logo2.png"></a>\r\n      <ul class="right hide-on-med-and-down">\r\n        <li><a href="[(site_url)]">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a class="waves-effect waves-light btn light-green" href="[(site_url)]login.html">Вход</a></li>\r\n      </ul>\r\n\r\n      <ul id="nav-mobile" class="side-nav">\r\n		<li><a href="[(site_url)]">Главная</a></li>\r\n        <li><a href="#">Надзератель</a></li>\r\n        <li><a href="#">Принцип работы</a></li>\r\n        <li><a href="#">О нас</a></li>\r\n        <li><a class="waves-effect waves-light btn light-green" href="[(site_url)]login.html">Вход</a></li>\r\n      </ul>\r\n      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>\r\n    </div>\r\n</nav>', 0),
-	(8, 'exist_login', 'Проверка существования логина emaila', 2, 'none', 0, 0, '<script>\r\n	\r\n	$(\'#email\').focusout(function() {\r\n		$.post(\r\n		  "/exist_login.php",\r\n		  {\r\n			email: $(\'#email\').val()\r\n		  },\r\n		  onAjaxSuccess\r\n		);\r\n		//alert(\'Элемент foo потерял фокус.\');\r\n	});\r\n	\r\n	function onAjaxSuccess(data) {\r\n		\r\n		// Здесь мы получаем данные, отправленные сервером и выводим их на экран.\r\n		//alert(data);\r\n		if(data == \'yes\') {\r\n			document.getElementById(\'emailex\').style.visibility = "hidden";\r\n			document.getElementById(\'emailok\').style.visibility = "visible";\r\n		}\r\n		else if(data == \'no\'){\r\n			document.getElementById(\'emailex\').style.visibility = "visible";\r\n			document.getElementById(\'emailok\').style.visibility = "hidden";\r\n		}\r\n	}\r\n	\r\n</script>', 0);
+	(8, 'exist_login', 'Проверка существования логина emaila', 2, 'none', 0, 0, '<script>\r\n	\r\n	$(document).ready(function(){\r\n        $("#password1").pwdMeter();\r\n    });\r\n	\r\n	$(document).ready(function(){\r\n        $("#password2").pwdCompare();\r\n    });\r\n	\r\n	$(\'#email\').focusout(function() {\r\n		$.post(\r\n		  "/exist_login.php",\r\n		  {\r\n			email: $(\'#email\').val()\r\n		  },\r\n		  onAjaxSuccess\r\n		);\r\n	});\r\n	\r\n	function onAjaxSuccess(data) {\r\n		\r\n		// Здесь мы получаем данные, отправленные сервером.\r\n		if(data == \'yes\') {\r\n			document.getElementById(\'emailex\').style.visibility = "hidden";\r\n		}\r\n		else if(data == \'no\'){\r\n			document.getElementById(\'emailex\').style.visibility = "visible";\r\n		}\r\n	}\r\n	\r\n	$(\'#password1\').focusout(function() {\r\n		\r\n		if($(\'#password1\').val() == \'\') {\r\n			document.getElementById(\'pwdMeter\').style.visibility = "hidden";\r\n			$(\'#pwdMeter\').text(\'\');\r\n		}\r\n	});\r\n	\r\n	$(\'#password1\').focusin(function() {\r\n		document.getElementById(\'pwdMeter\').style.visibility = "visible";\r\n	});\r\n	\r\n	$(\'#password2\').focusout(function() {\r\n		\r\n		if($(\'#password2\').val() == \'\') {\r\n			document.getElementById(\'pwdCompare\').style.visibility = "hidden";\r\n			$(\'#pwdCompare\').text(\'\');\r\n		}\r\n	});\r\n	\r\n	$(\'#password2\').focusin(function() {\r\n		document.getElementById(\'pwdCompare\').style.visibility = "visible";\r\n	});\r\n	\r\n</script>', 0);
 /*!40000 ALTER TABLE `modx_site_htmlsnippets` ENABLE KEYS */;
 
 
@@ -1399,9 +1555,9 @@ CREATE TABLE IF NOT EXISTS `modx_site_snippets` (
   `properties` text COMMENT 'Default Properties',
   `moduleguid` varchar(32) NOT NULL DEFAULT '' COMMENT 'GUID of module from which to import shared parameters',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=249 COMMENT='Contains the site snippets.';
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=249 COMMENT='Contains the site snippets.';
 
--- Дамп данных таблицы wotch.modx_site_snippets: 15 rows
+-- Дамп данных таблицы wotch.modx_site_snippets: 16 rows
 /*!40000 ALTER TABLE `modx_site_snippets` DISABLE KEYS */;
 INSERT INTO `modx_site_snippets` (`id`, `name`, `description`, `editor_type`, `category`, `cache_type`, `snippet`, `locked`, `properties`, `moduleguid`) VALUES
 	(1, 'alterTitle', '<strong>1</strong> Pagetitle если Longtitle пуст', 0, 7, 0, '\r\n//[[alterTitle? &id = `[+id+]`]] к примеру для вывода в Ditto\r\n$id = isset($id) ? (int) $id : 0;\r\nif ($id) {\r\n	$arr = $modx->getPageInfo($id,1,\'pagetitle,longtitle\');\r\n} else {\r\n	$arr[\'pagetitle\'] = $modx->documentObject[\'pagetitle\'];\r\n	$arr[\'longtitle\'] = $modx->documentObject[\'longtitle\'];\r\n}\r\n$title = strip_tags(strlen($arr[\'longtitle\']) ? $arr[\'longtitle\'] : $arr[\'pagetitle\']); \r\nreturn $title;\r\n?>\r\n', 0, '', ''),
@@ -1418,7 +1574,8 @@ INSERT INTO `modx_site_snippets` (`id`, `name`, `description`, `editor_type`, `c
 	(12, 'loginza', '<strong>0.5</strong> Log in via social networks. Uses in his work and snippet WebLogin', 0, 3, 0, 'return require MODX_BASE_PATH.\'assets/snippets/modxloginza/snippet.loginza.php\';', 0, '{}', ' '),
 	(13, 'WebChangePwd', '<strong>1.0</strong> Allows Web User to change their password from the front-end of the website', 0, 10, 0, 'return require MODX_BASE_PATH.\'assets/snippets/weblogin/snippet.webchangepwd.php\';', 0, '', ''),
 	(14, 'WebLogin', '<strong>1.1</strong> Allows webusers to login to protected pages in the website, supporting multiple user groups', 0, 10, 0, 'return require MODX_BASE_PATH.\'assets/snippets/weblogin/snippet.weblogin.php\';', 0, '&loginhomeid=Login Home Id;string; &logouthomeid=Logout Home Id;string; &logintext=Login Button Text;string; &logouttext=Logout Button Text;string; &tpl=Template;string;', ''),
-	(15, 'WebSignup', '<strong>1.1</strong> Basic Web User account creation/signup system', 0, 10, 0, 'return require MODX_BASE_PATH.\'assets/snippets/weblogin/snippet.websignup.php\';', 0, '&tpl=Template;string;', '');
+	(15, 'WebSignup', '<strong>1.1</strong> Basic Web User account creation/signup system', 0, 10, 0, 'return require MODX_BASE_PATH.\'assets/snippets/weblogin/snippet.websignup.php\';', 0, '&tpl=Template;string;', ''),
+	(16, 'exist_orAdd_user', 'Проверяет существование или добавление пользователя', 0, 0, 0, 'return require MODX_BASE_PATH.\'assets/snippets/index.php\';', 0, '{}', ' ');
 /*!40000 ALTER TABLE `modx_site_snippets` ENABLE KEYS */;
 
 
@@ -1444,7 +1601,7 @@ INSERT INTO `modx_site_templates` (`id`, `templatename`, `description`, `editor_
 	(3, 'Home', '', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div id="index-banner" class="parallax-container">\r\n    <div class="section no-pad-bot">\r\n      <div class="center">\r\n        <div class="row center">\r\n          <a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 buttonf">БЫТЬ ПЕРВЫМ</a>\r\n        </div>\r\n        <br><br>\r\n\r\n      </div>\r\n    </div>\r\n    <div class="parallax"><img src="[(site_url)]assets/images/1.png" alt="Unsplashed background img 1"></div>\r\n  </div>\r\n  \r\n  <div class="section no-pad-bot" id="index-banner">\r\n    <div class="container">\r\n      <br><br>\r\n      <h1 class="header center orange-text">Как это работает?</h1>\r\n      <div class="row center">\r\n        <h5 class="header col s12 light">[*content*]</h5>\r\n      </div>\r\n      <br><br>\r\n\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div class="container">\r\n    <div class="section">\r\n\r\n      <!--   Icon Section   -->\r\n      \r\n<div class="row">\r\n        \r\n	\r\n        <div class="col s12 m4">\r\n          <div class="icon-block">\r\n            <h2 class="center light-blue-text"><i class="material-icons">supervisor_account</i></h2>\r\n            <h5 class="center">Пользователи</h5>\r\n\r\n            <p class="light"><b>Нас уже (...)</b></p>\r\n            <p class="light"><b>Количество надзерателей (...)</b></p>\r\n          </div>\r\n        </div>\r\n\r\n        <div class="col s12 m4">\r\n          <div class="icon-block">\r\n            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>\r\n            <h5 class="center">Планы на будущее</h5>\r\n\r\n            <p class="light"><b>Сделать сайт!</b></p>\r\n          </div>\r\n        </div>\r\n\r\n		<div class="col s12 m4">\r\n			  <div class="icon-block">\r\n				<h2 class="center light-blue-text"><i class="material-icons">visibility</i></h2>\r\n				<h5 class="center">Поддерживаемые сайты</h5>\r\n				  <div class="chip">\r\n					<img src="assets/images/olx.png" alt="Contact Person">\r\n					OLX - на стадии разработки\r\n  				</div>\r\n			  </div>\r\n			</div>\r\n		  </div>\r\n\r\n    </div>\r\n    <br><br>\r\n\r\n    <div class="section">\r\n\r\n    </div>\r\n  </div>\r\n{{footer}}', 0, 1),
 	(4, 'MODX startup - Bootstrap', '<strong>1.0</strong> Sample template in Bootstrap', 0, 1, '', 0, '<!DOCTYPE html>\n<html lang="[(lang_code)]">\n<head>	\n	<base href="[(site_url)]" />\n	<meta charset="[(modx_charset)]" />\n	<meta name="viewport" content="width=device-width, initial-scale=1">\n	<meta http-equiv="X-UA-Compatible" content="IE=edge">\n	<title>[*pagetitle*] / [(site_name)]</title>\n	<@IF:[*description:isntEmpty*]><meta name="description" content="[*description*]"><@ENDIF>\n	\n	<link href="[(site_url)]<@IF:[*id:isnt(1)*]>[~[*id*]~]<@ENDIF>" rel="canonical">\n	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">	\n	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">\n	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">\n	\n	<style> \n	html, body{background:#eee; font-family:\'Open Sans\',sans-serif; line-height:1.8; font-size:14px;}\n	a:focus{outline:none; outline-offset:0;}\n	h1{margin-top:15px;}\n\n	.logo{float:left;}\n	.logo img{max-width:200px; margin:10px 0; display:block; height:50px; width:auto;}\n	.dropdown-menu{border-radius:0; border:0;}\n	.dropdown-menu > li > a{padding-top:5px; padding-bottom:5px;}\n\n	.navbar-collapse.collapse.in{border-bottom:10px solid #eee;}\n	.navbar{min-height:0; background:#fff; margin-bottom:0;}\n	.navbar.nav{margin-left:0;}\n	.navbar.nav ul{padding-left:0;}\n	.navbar-nav{margin:0;}\n	.navbar-toggle{background:#fff; border:2px solid #eee; border-radius:0; position:fixed; z-index:99; right:0; top:7px; padding:12px 10px; margin-right:10px;}\n	.navbar .navbar-toggle .icon-bar{background-color:#333;}\n\n	.nav li a{text-transform:uppercase; color:#333; font-weight:500; font-size:110%;}\n	.nav li li a{text-transform:none; font-weight:normal; font-size:100%;}\n\n	.navbar{border:none; border-radius:0;}\n	#navbar{padding:0;}\n	ul.nav > li > a:hover{background-color:#f5f5f5;}\n\n	.affix{top:0px; width:100%; z-index:1000; background-color:#eee;}\n	.affix + .affspacer{display:block; height:50px;}\n\n	.box-shadow{-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175); box-shadow:0 6px 12px rgba(0,0,0,.175);}\n\n	.container {max-width:970px; margin:0 12px;}\n	.top .col-sm-12{padding-left:0; padding-right:0;}\n\n	#ajaxSearch_input,\n	#username,\n	#password{width:100%!important;}\n	#forgotpsswd{clear:both;}\n	input.button[type="submit"]{display:block;}\n	label.checkbox{display:inline-block; margin-left:10px;}\n	label, legend{font-weight:400;}\n	#ajaxSearch_form { position:relative; }\n	#searchClose { display:none !important; }\n    #indicator { position:absolute; top:9px; right:12px; z-index:10; opacity:.75; }\n\n	h2{font-size:22px;}\n	.bread{padding:1em 0 0 0;}\n	.mem{color:#aaa; text-align:center; padding:1em 0 2em;}\n\n	section.main .container{background-color:#fff; padding-bottom:20px;}\n	footer.footer .container{background-color:#000; color:#fff; line-height:40px;}\n\n	section.main ul{list-style:none; margin:0 0 1em 0; padding:0;}\n	section.main ul li{padding-left:1em;}\n	section.main ul li:before{content:\'\\2022\'; position:absolute; line-height:1.85em; margin-left:-1em;}\n\n	.footer{text-align:center;}\n	.footer .text-right{text-align:center;}\n\n	/* JOT */\n	.jot-comment{padding:5px 10px;}\n	.jot-row-author{background-color:#dddddd;}\n	.jot-row-alt{background-color:#f9f9f9;}\n	.jot-row{background-color:#eeeeee;}\n	.jot-row-up{border:1px solid #333!important;}\n	.jot-row-up.panel-primary > .panel-heading{background-color:#333!important; border-color:#333!important;}\n	.jot-extra{font-size:75%;}\n	.jot-poster{font-size:inherit!important;}\n\n	.ditto_summaryPost img{max-width:100%; height:auto; margin:10px 0 5px; display:block;}\n	.ditto_summaryPost{padding-top:10px; padding-bottom:15px; border-bottom:1px solid #eee;}\n\n	/* Larger than mobile */\n	@media (min-width:320px) {\n\n	}\n\n	/* Larger than phablet */\n	@media (min-width:480px) {\n\n	}\n\n	/* Larger than tablet */\n	@media (min-width:768px) {\n\n		.container{margin:0 auto;}\n		.logo{padding-left:15px;}\n		.logo img{ max-width:240px; margin:0; display:block; height:100px;}\n\n		.navbar{background:transparent;}\n		.navbar.affix{background:#eee;}\n		.navbar-collapse.collapse.in{border-bottom:0;}\n\n		.footer{text-align:left;}\n		.footer .text-right{text-align:right;}\n\n		.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {padding-left:35px; padding-right:35px;}\n\n	}\n	</style>\n	\n	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>\n</head>\n<body>\n	<section class="top">\n		<div class="container">\n			<div class="row">\n				<div class="col-sm-12" itemscope itemtype="http://schema.org/Organization">\n\n					<a class="logo" href="[~[(site_start)]~]" title="[(site_name)]" itemprop="url">\n						<img src="[(site_url)]assets/images/modx-logo.png" itemprop="logo" width="240" height="100" alt="[(site_name)]" />\n					</a>\n\n					<div class="clearfix"></div>\n\n					<nav class="navbar" role="navigation" data-spy="affix" data-offset-top="100">\n\n						<div class="navbar-header">\n							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">\n								<span class="sr-only">Toggle navigation</span>\n								<span class="icon-bar"></span>\n								<span class="icon-bar"></span>\n								<span class="icon-bar"></span>\n							</button>\n						</div>\n						<div id="navbar" class="navbar-collapse collapse">\n							[[Wayfinder? \n							&startId=`0` \n							&level=`2` \n							&removeNewLines=`1`\n							&outerTpl=`@CODE:<ul class="nav navbar-nav">[+wf.wrapper+]</ul>`\n							&rowTpl=`@CODE:<li[+wf.classes+]><a href="[+wf.link+]" [+wf.attributes+]>[+wf.linktext+]</a>[+wf.wrapper+]</li>`\n							&innerTpl=`@CODE:<ul class="dropdown-menu">[+wf.wrapper+]</ul>`\n							&innerRowTpl=`@CODE:<li[+wf.classes+]><a href="[+wf.link+]">[+wf.linktext+]</a></li>`\n							&parentRowTpl=`@CODE:<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" title="[+wf.title+]">[+wf.linktext+] <b class="caret"></b></a>[+wf.wrapper+]</li>`\n							&activeParentRowTpl=`@CODE:<li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#" title="[+wf.title+]">[+wf.linktext+] <b class="caret"></b></a>[+wf.wrapper+]</li>`\n							]]\n						</div>\n\n					</nav>\n					<div class="affspacer"></div>\n\n				</div>\n			</div>\n		</div>\n		</section>\n\n		<section class="main">\n			<div class="container">\n\n				<div class="row">\n					<div class="col-sm-12">\n						<div class="bread">\n							[[Breadcrumbs]]\n						</div>\n					</div>\n				</div>\n\n				<div class="row">\n\n					<div class="col-sm-8">\n						<h1>[*#longtitle*]</h1>\n						[*#content*]\n					</div>\n\n					<aside class="col-sm-4">\n						<div class="search">\n							<h2>Search</h2>\n							[!AjaxSearch? \n							&ajaxSearch=`1` \n							&addJscript=`0` \n							&showIntro=`0` \n							&ajaxMax=`5` \n							&extract=`1`\n							&jscript=`jquery`\n							&tplInput=`AjaxSearch_tplInput`\n							&tplAjaxGrpResult=`AjaxSearch_tplAjaxGrpResult`\n							&tplAjaxResults=`AjaxSearch_tplAjaxResults`\n							&tplAjaxResult=`AjaxSearch_tplAjaxResult`\n							&showResults=`1`\n							&liveSearch=`0`\n							!]\n						</div>\n\n						<h2>News:</h2>\n						[[DocLister? \n						&parents=`2` \n						&display=`2`\n						&total=`20` \n						&removeChunk=`Comments` \n						&tpl=`nl_sidebar`\n						]]\n\n						<div>\n							<h2>Most Recent:</h2>\n\n							<ul>\n								[[DocLister? \n								&showInMenuOnly=`1` \n								&parents=`0`\n								&display=`5`\n								&tpl=`@CODE:<li><a href="[+url+]" title="[+pagetitle+]">[+pagetitle+]</a> <span class="date">[+date+]</span></li>`\n								]]\n							</ul>\n\n						</div>\n						<br/>\n						<h2>Login:</h2>\n						<div>\n							[!WebLogin? \n							&tpl=`WebLogin_tplForm` \n							&loginhomeid=`[(site_start)]`\n							&focusInput=`0`\n							!]\n						</div>\n\n					</aside>\n				</div>\n			</div>\n\n		</section>\n\n		<footer class="footer">\n			<div class="container">\n				<div class="row">\n					<div class="col-sm-6">\n						<a href="https://modx.com" title="Learn more about MODX">MODX</a> Starter-Template &copy;2006-[[$_SERVER[\'REQUEST_TIME\']:dateFormat=`Y` ]]\n					</div>\n					<div class="col-sm-6 text-right">\n						Built with <a href="http://www.getbootstrap.com" target="_blank">Bootstrap</a> framework.\n					</div>\n				</div>\n			</div>\n		</footer>\n\n		<div class="container mem">\n			<small>Memory: [^m^], MySQL: [^qt^], [^q^] request(s), PHP: [^p^], total: [^t^], document retrieved from [^s^]. </small>\n	</div>\n\n	<!-- Scripts\n	–––––––––––––––––––––––––––––––––––––––––––––––––– -->	\n\n	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>\n	<!--[if lt IE 9]>\n		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>\n		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>\n	<![endif]-->\n	\n</body>\n</html>', 0, 1),
 	(5, 'Авторизация', ' login', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div>\r\n	<div class="container_login">\r\n			<div class="row">\r\n				<form class="col s12">\r\n				  <div class="row">\r\n					<div class="input-field col s12">\r\n					  <i class="material-icons prefix">account_circle</i>\r\n					  <input id="icon_prefix" type="text" class="validate">\r\n					  <label for="icon_prefix">Email</label>\r\n					</div>\r\n					<div class="input-field col s12">\r\n					  <i class="material-icons prefix">lock</i>\r\n					  <input id="icon_telephone" type="tel" class="validate">\r\n					  <label for="icon_telephone">Пароль</label>\r\n					</div>\r\n				  </div>\r\n					<div>\r\n						<input class="waves-effect waves-light btn light-green" type="submit" value="Войти">\r\n					</div>\r\n					<div>\r\n						[!loginza? &type=`profile`!]\r\n					</div>\r\n				</form>\r\n			</div>\r\n		</div>\r\n	</div>\r\n{{footer}}', 0, 1),
-	(6, 'registration', 'Форма регистрации', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div class="container_login">\r\n<div class="row">\r\n    <form class="col s12">\r\n      <div class="row">\r\n        <div class="input-field col s6">\r\n		  <i class="material-icons prefix light-blue-text">account_circle</i>\r\n          <input id="first_name" type="text" class="validate">\r\n          <label for="first_name">Имя</label>\r\n        </div>\r\n        <div class="input-field col s6">\r\n          <input id="last_name" type="text" class="validate">\r\n          <label for="last_name">Фамилия</label>\r\n        </div>\r\n      </div>\r\n      <div class="row">\r\n        <div class="input-field col s12">\r\n		  <i class="material-icons prefix light-blue-text">email</i>\r\n          <input id="email" type="email" class="validate">\r\n          <label id="emailok" for="email">Email</label>\r\n		  <label id="emailex" for="email">Пользователь с таким Email уже зарегестрирован!</label>\r\n        </div>\r\n      </div>\r\n      <div class="row">\r\n        <div class="input-field col s12">\r\n		  <i class="material-icons prefix light-blue-text">lock</i>\r\n          <input id="password1" type="password" class="validate">\r\n          <label for="password1">Пароль</label>\r\n        </div>\r\n      </div>\r\n		<div class="row">\r\n        <div class="input-field col s12">\r\n		  <i class="material-icons prefix light-blue-text">lock</i>\r\n          <input id="password2" type="password" class="validate">\r\n          <label for="password2">Повторите пароль</label>\r\n        </div>\r\n      </div>\r\n		<div class="right-align">\r\n			<input class="waves-effect waves-light btn light-green" type="submit" value="Регистрация">\r\n		</div>\r\n    </form>\r\n  </div>\r\n</div>\r\n{{footer}}\r\n{{exist_login}}', 0, 1);
+	(6, 'registration', 'Форма регистрации', 0, 0, '', 0, '{{header}}\r\n{{NAV}}\r\n<div class="container_login">\r\n<div class="row">\r\n    <form class="col s12">\r\n      <div class="row">\r\n        <div class="input-field col s6">\r\n		  <i class="material-icons prefix light-blue-text">account_circle</i>\r\n          <input id="first_name" type="text" class="validate">\r\n          <label for="first_name">Имя</label>\r\n        </div>\r\n        <div class="input-field col s6">\r\n          <input id="last_name" type="text" class="validate">\r\n          <label for="last_name">Фамилия</label>\r\n        </div>\r\n      </div>\r\n      <div class="row">\r\n        <div class="input-field col s12">\r\n		  <i class="material-icons prefix light-blue-text">email</i>\r\n          <input id="email" type="email" class="validate">\r\n		  <label for="email">Email <span id="emailex" style="color: red;">Пользователь с таким Email уже зарегестрирован!</span></label>\r\n        </div>\r\n      </div>\r\n      <div class="row">\r\n        <div class="input-field col s12">\r\n		  <i class="material-icons prefix light-blue-text">lock</i>\r\n          <input id="password1" type="password" class="validate">\r\n		  <label for="password1">Пароль <span id="pwdMeter" class="neutral"></span></label>\r\n        </div>\r\n      </div>\r\n		<div class="row">\r\n        <div class="input-field col s12">\r\n		  <i class="material-icons prefix light-blue-text">lock</i>\r\n          <input id="password2" type="password" class="validate">\r\n          <label for="password2">Повторите пароль <span id="pwdCompare" class="neutral"></span></label>\r\n        </div>\r\n      </div>\r\n		<div class="right-align">\r\n			<input class="waves-effect waves-light btn light-green" type="submit" value="Регистрация">\r\n		</div>\r\n    </form>\r\n  </div>\r\n</div>\r\n{{footer}}\r\n<script src="/assets/js/jquery.pwdMeter.js"></script>\r\n{{exist_login}}', 0, 1);
 /*!40000 ALTER TABLE `modx_site_templates` ENABLE KEYS */;
 
 
@@ -1829,7 +1986,7 @@ INSERT INTO `modx_system_settings` (`setting_name`, `setting_value`) VALUES
 	('captcha_words_default', 'MODX,Access,Better,BitCode,Chunk,Cache,Desc,Design,Excell,Enjoy,URLs,TechView,Gerald,Griff,Humphrey,Holiday,Intel,Integration,Joystick,Join(),Oscope,Genetic,Light,Likeness,Marit,Maaike,Niche,Netherlands,Ordinance,Oscillo,Parser,Phusion,Query,Question,Regalia,Righteous,Snippet,Sentinel,Template,Thespian,Unity,Enterprise,Verily,Tattoo,Veri,Website,WideWeb,Yap,Yellow,Zebra,Zygote'),
 	('rb_webuser', '0'),
 	('lang_code', 'ru'),
-	('sys_files_checksum', 'a:4:{s:39:"C:/OpenServer/domains/modx.ua/index.php";s:32:"c16a5692a22a2b08c6def0c52c9f5616";s:39:"C:/OpenServer/domains/modx.ua/.htaccess";s:32:"ccdc15e95196739065744d1ac1621502";s:47:"C:/OpenServer/domains/modx.ua/manager/index.php";s:32:"236f68dad4d8ac0166aa78290b107f1f";s:61:"C:/OpenServer/domains/modx.ua/manager/includes/config.inc.php";s:32:"f1c604be50a50cf7d72bdc1084945dff";}');
+	('sys_files_checksum', 'a:4:{s:36:"C:/OpenServer/domains/modx/index.php";s:32:"c16a5692a22a2b08c6def0c52c9f5616";s:36:"C:/OpenServer/domains/modx/.htaccess";s:32:"bc36bc59752f0852a763c5b50be6dc1e";s:44:"C:/OpenServer/domains/modx/manager/index.php";s:32:"236f68dad4d8ac0166aa78290b107f1f";s:58:"C:/OpenServer/domains/modx/manager/includes/config.inc.php";s:32:"127a1b7fbe321f5ac11277f581b0d74c";}');
 /*!40000 ALTER TABLE `modx_system_settings` ENABLE KEYS */;
 
 
@@ -2054,12 +2211,13 @@ CREATE TABLE IF NOT EXISTS `modx_web_users` (
   `cachepwd` varchar(100) NOT NULL DEFAULT '' COMMENT 'Store new unconfirmed password',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=60;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=60;
 
--- Дамп данных таблицы wotch.modx_web_users: 1 rows
+-- Дамп данных таблицы wotch.modx_web_users: 2 rows
 /*!40000 ALTER TABLE `modx_web_users` DISABLE KEYS */;
 INSERT INTO `modx_web_users` (`id`, `username`, `password`, `cachepwd`) VALUES
-	(1, '109141084637326271700@plus.google.com', '0f9d94709990', '');
+	(1, '109141084637326271700@plus.google.com', '0f9d94709990', ''),
+	(2, 'igor', '781f6c7a5ae16e9c324c2b8e2123e7b9', '');
 /*!40000 ALTER TABLE `modx_web_users` ENABLE KEYS */;
 
 
@@ -2093,12 +2251,13 @@ CREATE TABLE IF NOT EXISTS `modx_web_user_attributes` (
   `comment` text,
   PRIMARY KEY (`id`),
   KEY `userid` (`internalKey`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=188 COMMENT='Contains information for web users.';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=188 COMMENT='Contains information for web users.';
 
--- Дамп данных таблицы wotch.modx_web_user_attributes: 1 rows
+-- Дамп данных таблицы wotch.modx_web_user_attributes: 2 rows
 /*!40000 ALTER TABLE `modx_web_user_attributes` DISABLE KEYS */;
 INSERT INTO `modx_web_user_attributes` (`id`, `internalKey`, `fullname`, `role`, `email`, `phone`, `mobilephone`, `blocked`, `blockeduntil`, `blockedafter`, `logincount`, `lastlogin`, `thislogin`, `failedlogincount`, `sessionid`, `dob`, `gender`, `country`, `street`, `city`, `state`, `zip`, `fax`, `photo`, `comment`) VALUES
-	(1, 1, 'ipra ipra', 0, 'iprahtc2@gmail.com', '', '', 0, 0, 0, 1, 0, 1492444194, 0, 'tb41qb0rih3ucs5p6qo1rv8773', 0, 0, '', '', '', '', '', '', 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50', '');
+	(1, 1, 'ipra ipra', 0, 'iprahtc2@gmail.com', '', '', 0, 0, 0, 1, 0, 1492444194, 0, 'tb41qb0rih3ucs5p6qo1rv8773', 0, 0, '', '', '', '', '', '', 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50', ''),
+	(2, 2, 'Igor Didenko', 0, 'igorded1991@yandex.ru', '+380969063656', '+380969063656', 0, 0, 0, 0, 0, 0, 0, '', 680734800, 1, '81', 'Meleshkina bla bla bla', 'Berlin', 'Sachsen', '500505', '', '', '');
 /*!40000 ALTER TABLE `modx_web_user_attributes` ENABLE KEYS */;
 
 
