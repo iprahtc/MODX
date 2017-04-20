@@ -1,6 +1,5 @@
 <?php
-
-	//Подключение к базе данных
+//Подключение к базе данных
 	function connect_db() {
 		$HOST = 'localhost';
 		$USER = 'root';
