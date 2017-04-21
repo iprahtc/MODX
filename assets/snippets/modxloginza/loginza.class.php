@@ -25,7 +25,7 @@ class MODxLoginza
     function __construct($providers,$landing_url,$secret,$debug,$login_id,$register_id)
     {
         include_once MODX_BASE_PATH.'assets/snippets/modxloginza/lang.const.php';
-        $this->button = '<script src="http://loginza.ru/js/widget.js" type="text/javascript"></script><h3><a href="https://loginza.ru/api/widget?providers_set='.$providers.'&token_url='.$landing_url.'" class="loginza">'.DEFAULT_ENTER.'</a></h3>';
+        $this->button = '<script src="http://loginza.ru/js/widget.js" type="text/javascript"></script><h6><a href="https://loginza.ru/api/widget?providers_set='.$providers.'&token_url='.$landing_url.'" class="loginza">'.DEFAULT_ENTER.'</a></h6>';
         $this->mysecret=$secret;
         $this->Debug=$debug;
         $this->login_id=$login_id;
