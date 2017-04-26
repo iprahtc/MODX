@@ -64,23 +64,27 @@ footer.page-footer {
     margin: 10% auto;
 }
 
-#emailex {
+#emailex, #pwdMeter, #pwdCompare {
 	
 	visibility: hidden;
 }
 
 .veryweak{
-        color:#B40404;
-    }
-    .weak{
-        color:#DF7401;
-    }
-    .medium{
-        color:#FFFF00;
-    }
-    .strong{
-        color:#9AFE2E;
-    }
-    .verystrong{
-        color:#0B610B;
-    }
+	color:#B40404;
+}
+
+.weak{
+	color:#DF7401;
+}
+
+.medium{
+	color:#FFFF00;
+}
+
+.strong{
+	color:#9AFE2E;
+}
+
+.verystrong{
+	color:#0B610B;
+}
