@@ -154,6 +154,7 @@ class MODxLoginza
 		    " (internalKey, fullname, email, phone, mobilephone, dob, gender, country, state, zip, fax, photo, comment) VALUES".
 		    " ('".$key."', '".$this->User['fullname']."', '".$this->User['email']."', '".$phone."', '".$mobilephone."', '".$uattr['dob']."', '".$uattr['gender']."', '".$country."', '".$state."', '".$zip."', '".$fax."', '".$uattr['photo']."', '".$comment."')";
 		  $insertUserAttr = $modx->db->query($newUserAttr);
+		  $_SESSION['webUserphoto'] = $uattr['photo'];
 
           if (!$insertUserAttr) //  если запрос не выполнен
 		  {
@@ -386,6 +387,7 @@ class MODxLoginza
 	            unset($_SESSION['webUsrConfigSet']);
 	            unset($_SESSION['webUserGroupNames']);
 	            unset($_SESSION['webDocgroups']);
+	            unset($_SESSION['webUserphoto']);
 
                 $cookieName = 'MODxLoginza';
 				setcookie($cookieName, '', time()-60, '/', $_SERVER['SERVER_NAME'], 0);
