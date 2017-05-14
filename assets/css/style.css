@@ -64,7 +64,7 @@ footer.page-footer {
     margin: 10% auto;
 }
 
-#emailex, #pwdMeter, #pwdCompare {
+#emailex, #pwdMeter, #pwdCompare, #userex {
 	
 	visibility: hidden;
 }

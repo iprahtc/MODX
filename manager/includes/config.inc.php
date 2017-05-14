@@ -3,12 +3,12 @@
  * MODX Configuration file
  */
 $database_type     = 'mysqli';
-$database_server   = 'localhost';
-$database_user     = 'root';
-$database_password = '';
+$database_server   = '91.231.84.104';
+$database_user     = 'ibase_woch';
+$database_password = '512D43hHEJIGBfK';
 $database_connection_charset = 'utf8';
 $database_connection_method = 'SET CHARACTER SET';
-$dbase             = '`wotch`';
+$dbase             = '`ibase_woch`';
 $table_prefix      = 'modx_';
 
 $lastInstallTime = 1491595107;
