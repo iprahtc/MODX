@@ -13,7 +13,7 @@ jQuery.fn.pwdCompare = function(options){
 
         options = jQuery.extend({
 			
-			passwordId: "#password1",
+			passwordId: "#password",
 			passwordBox: this
         
         }, options);

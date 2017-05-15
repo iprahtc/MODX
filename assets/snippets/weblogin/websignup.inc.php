@@ -28,6 +28,7 @@ else if ($isPostBack){
     $username = $modx->db->escape($modx->stripTags(trim(htmlspecialchars($_POST['username'], ENT_NOQUOTES, $modx->config['modx_charset']))));
     $fullname = $modx->db->escape($modx->stripTags($_POST['fullname']));
     $email = $modx->db->escape($modx->stripTags($_POST['email']));
+    $phone = $modx->db->escape($modx->stripTags($_POST['phone']));
     $password = htmlspecialchars($_POST['password'], ENT_NOQUOTES, $modx->config['modx_charset']);
     $country = $modx->db->escape($modx->stripTags($_POST['country']));
     $state = $modx->db->escape($modx->stripTags($_POST['state']));
@@ -40,6 +41,7 @@ else if ($isPostBack){
     $tpl = str_replace("[+username+]",$username,$tpl);
     $tpl = str_replace("[+fullname+]",$fullname,$tpl);
     $tpl = str_replace("[+email+]",$email,$tpl);
+    $tpl = str_replace("[+phone+]",$phone,$tpl);
     $tpl = str_replace("[+country+]",$country,$tpl);
     $tpl = str_replace("[+state+]",$state,$tpl);
     $tpl = str_replace("[+zip+]",$zip,$tpl);
@@ -47,21 +49,21 @@ else if ($isPostBack){
 
     // check for duplicate user name
     if($username=="") {
-        $output = webLoginAlert("Missing username. Please enter a user name.").$tpl;
+        $output = webLoginAlert("Поле Логин не может быть пустым!").$tpl;
         return;
     }
     else {
         $rs = $modx->db->select('count(id)', $modx->getFullTableName("web_users"), "username='{$username}'");
         $limit = $modx->db->getValue($rs);
         if($limit>0) {
-            $output = webLoginAlert("Username is already in use!").$tpl;
+            $output = webLoginAlert("Пользователь с таким логином уже зарегистрирован!").$tpl;
             return;
         }        
     }
     
     // verify email
     if($email=='' || !preg_match("/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i", $email)){
-        $output = webLoginAlert("E-mail address doesn't seem to be valid!").$tpl;
+        $output = webLoginAlert("Недопустимый email!").$tpl;
         return;
     }
 
@@ -69,7 +71,7 @@ else if ($isPostBack){
     $rs = $modx->db->select('count(internalKey)', $modx->getFullTableName("web_user_attributes"), "email='{$email}' AND internalKey!='{$id}'");
     $limit = $modx->db->getValue($rs);
     if($limit>0) {
-            $output = webLoginAlert("Email is already in use!").$tpl;
+            $output = webLoginAlert("Такой Email адрес уже зарегистрирован!").$tpl;
             return;
     }
     
@@ -77,17 +79,17 @@ else if ($isPostBack){
  	if (isset($_POST['password'])) { 	  	 
 		// verify password 	  	 
  	    if ($_POST['password'] != $_POST['confirmpassword']) { 	  	 
- 	  		$output = webLoginAlert("Password typed is mismatched"). $tpl; 	  	 
+ 	  		$output = webLoginAlert("Пароли не совпадают!"). $tpl; 	  	 
  	  	    return; 	  	 
  	  	} 	  	 
 
 	    // check password
 	    if (strlen($password) < 6 ) {
-	        $output = webLoginAlert("Password is too short!").$tpl;
+	        $output = webLoginAlert("Пароль не может быть меньше 6 символов!").$tpl;
 	        return;
 	    } 
 	    elseif($password=="") {
-	        $output = webLoginAlert("You didn't specify a password for this user!").$tpl;
+	        $output = webLoginAlert("Пароль не может быть пустым!").$tpl;
 	        return;        
 	    }
  	} else {
@@ -96,7 +98,7 @@ else if ($isPostBack){
 
     // verify form code
     if($useCaptcha && $_SESSION['veriword']!=$formcode) {
-        $output = webLoginAlert("Incorrect form code. Please enter the correct code displayed by the image.").$tpl;
+        $output = webLoginAlert("Неверный код с картинки.").$tpl;
         return;
     }
 
@@ -116,6 +118,7 @@ else if ($isPostBack){
 			'zip'         => $zip,
 			'state'       => $state,
 			'country'     => $country,
+			'phone'       => $phone,
 		), $modx->getFullTableName("web_user_attributes"));
 
     // add user to web groups
@@ -136,19 +139,21 @@ else if ($isPostBack){
                             "useremail"    => $email,
                             "userfullname" => $fullname
                         ));
-                        
+                   
     // send email notification
     $rt = webLoginSendNewPassword($email,$username,$password,$fullname);
     if ($rt!==true) { // an error occured
         $output = $rt.$tpl;
         return;
     }
-        
+	
     // display change notification
-    $newpassmsg = "A copy of the new password was sent to your email address.";
+    $newpassmsg = "Информация об авторизации была отправлена вам на emal.";
     $tpl = $tpls[1];
     $tpl = str_replace("[+newpassmsg+]",$newpassmsg,$tpl);    
     $output .= $tpl;
+	$output .= '<h2 style="text-align: center; color: blue;">Вы успешно зарегестрированы!</h2>
+				<p style="text-align: center;"><a href="/">Главная</a> <span>/ </span><a href="/login.html">Авторизация</a></p>';
 }
 
 // Returns Default WebChangePwd tpl

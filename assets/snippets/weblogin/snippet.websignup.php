@@ -57,4 +57,3 @@ require_once $snipPath."weblogin/websignup.inc.php";
 
 # Return
 return $output;
-?>
