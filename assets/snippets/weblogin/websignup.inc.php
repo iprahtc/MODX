@@ -47,6 +47,20 @@ else if ($isPostBack){
     $tpl = str_replace("[+zip+]",$zip,$tpl);
     $tpl.="<script type='text/javascript'>if (document.websignupfrm) document.websignupfrm.username.focus();</script>";
 
+	/* $output = webLoginAlert(__FILE__).$tpl;
+	return; */
+	
+	$extensions = array('jpg', 'jpeg', 'png', 'gif');  
+	$upload_dir = $_SERVER['DOCUMENT_ROOT'].'/assets/images/photo_users';  // папка для загрузки (создать на сервере)
+	$photo = uploadHandle(8388608, $extensions, $upload_dir);
+	
+	if(!empty($photo)) {
+		if(!empty($photo['error'])) {
+			$output = webLoginAlert($photo['error']).$tpl;
+			return;
+		}
+	}
+	
     // check for duplicate user name
     if($username=="") {
         $output = webLoginAlert("Поле Логин не может быть пустым!").$tpl;
@@ -119,6 +133,7 @@ else if ($isPostBack){
 			'state'       => $state,
 			'country'     => $country,
 			'phone'       => $phone,
+			'photo'       => $photo['info'],
 		), $modx->getFullTableName("web_user_attributes"));
 
     // add user to web groups
@@ -485,6 +500,68 @@ function getWebSignuptpl($useCaptcha){
     $t = ob_get_contents();
     ob_end_clean();
     return $t;
+}
+
+/**  
+ * Функция загрузки файла (аплоадер)  
+ * @param  int    $max_file_size    максимальный размер файла в мегабайтах  
+ * @param  array  $valid_extensions массив допустимых расширений  
+ * @param  string $upload_dir       директория загрузки  
+ * @return array                    сообщение о ходе выполнения  
+ */ 
+
+function uploadHandle($max_file_size = 8388608, $valid_extensions = array(), $upload_dir = '.') {
+	
+	if(empty($_FILES['file']))
+		return null;
+	
+	$error = null;
+	$info  = null;
+	if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {  
+		// проверяем расширение файла  
+		$file_extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);  
+		if (in_array(strtolower($file_extension), $valid_extensions)) {  
+			// проверяем размер файла  
+			if ($_FILES['file']['size'] < $max_file_size) {  
+				$file_name = time() . $_FILES['file']['name'];  // к имени файла добавляем метку времени, чтобы исключить одинаковые имена
+				$destination = $upload_dir .'/' . $file_name;  
+   
+				if (move_uploaded_file($_FILES['file']['tmp_name'], $destination))  
+					$info = '/assets/images/photo_users/'.$file_name;  
+				else 
+					$error = 'Не удалось загрузить файл';  
+			}   
+			else 
+				$error = 'Размер файла больше допустимого';  
+		}   
+		else 
+			$error = 'У файла недопустимое расширение';  
+	}   
+	else {  
+		// массив ошибок  
+		$error_values = array( 
+
+			UPLOAD_ERR_INI_SIZE   => 'Размер файла больше разрешенного директивой upload_max_filesize в php.ini',  
+			UPLOAD_ERR_FORM_SIZE  => 'Размер файла превышает указанное значение в MAX_FILE_SIZE',                            
+			UPLOAD_ERR_PARTIAL    => 'Файл был загружен только частично',   
+			UPLOAD_ERR_NO_FILE    => 'Не был выбран файл для загрузки',   
+			UPLOAD_ERR_NO_TMP_DIR => 'Не найдена папка для временных файлов',   
+			UPLOAD_ERR_CANT_WRITE => 'Ошибка записи файла на диск'
+
+							  );  
+   
+		$error_code = $_FILES['file']['error'];
+		
+		if($error_code == UPLOAD_ERR_NO_FILE)
+			return null;
+		
+		if (!empty($error_values[$error_code]))  
+			$error = $error_values[$error_code];  
+		else 
+			$error = 'Неизвестная ошибка при загрузке файла!';  
+	}
+   
+	return array('info' => $info, 'error' => $error);
 }
 
 ?>
