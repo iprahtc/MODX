@@ -64,6 +64,16 @@ footer.page-footer {
     margin: 10% auto;
 }
 
+.container_search {
+	width: 1000px; 
+    padding: 10px; 
+    margin: 5% auto;
+}
+
+.container_search input {
+	text-align: center;
+}
+
 #emailex, #pwdMeter, #pwdCompare, #userex {
 	
 	visibility: hidden;
