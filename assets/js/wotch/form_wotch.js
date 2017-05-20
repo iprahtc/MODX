@@ -1,4 +1,3 @@
-
 function forWotch(name_site){
 	$.get("/new_wotch",
 		{
@@ -7,6 +6,7 @@ function forWotch(name_site){
 			data = JSON.parse(data);
 			$(".target").html(data.target);
 			$(".time-wotch").html(data.time_wotch);
+			$('select').material_select();
 		});
 }
 
