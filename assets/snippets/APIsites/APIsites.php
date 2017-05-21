@@ -2,6 +2,7 @@
 /*
 *	Поиск по названию
 */
+define('PAGE_COUNT', 10);
 define('MODX_API_MODE', true);
 include_once $_SERVER['DOCUMENT_ROOT'].'/manager/includes/config.inc.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/manager/includes/document.parser.class.inc.php';
@@ -29,7 +30,15 @@ if($isGet) {
 
 if(isset($_GET['sbmsearch'])) {
 	$chunk = $modx->getChunk('wotching_tpl');
-	for($i = 0; $i < count($outputArray); $i++)
+	if(isset($_GET['page'])) {
+		$page_end = $_GET['page']*PAGE_COUNT;
+		$page_start = ($_GET['page']-1)*PAGE_COUNT;
+	}
+	else {
+		$page_end = PAGE_COUNT;
+		$page_start = 0;
+	}
+	for($i = 0; $i < count($outputArray) && $i <= $page_end && $i >= $page_start; $i++)
 	{
 		$output .= $modx->parseText($chunk, array(
 			'url' => $outputArray[$i]['url'],
