@@ -36,6 +36,7 @@ if(isset($_GET['sbmsearch'])) {
 			'source' => $outputArray[$i]['source']
 		), '[+', '+]');
 	}
+	return $output;
 }
 else if(isset($_GET['action'])) {
 	$chunk = $modx->getChunk('preview_sz');
@@ -47,6 +48,8 @@ else if(isset($_GET['action'])) {
 			'poster' => $outputArray[$i]['poster']
 		), '[+', '+]');
 	}
+	echo $output;
+	exit();
 }
 
-return $output;
+return;
