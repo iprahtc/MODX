@@ -95,7 +95,7 @@
 		//Конвертирование региона в транслит
 		private function convertCity($str)
 		{
-			$city = file_get_contents('city.json'); 
+			$city = file_get_contents(__DIR__ .'/city.json'); 
 			$city = json_decode($city);
 			if($city->{$str} == NULL)
 				return 'list';
