@@ -39,7 +39,7 @@ function validationSite(){
 				$.get("/assets/snippets/APIsites/APIsites.php",
 				{
 					site: site_name,
-					name_film: film,
+					search: film,
 					season: season,
 					series: series,
 					translation: translation,
