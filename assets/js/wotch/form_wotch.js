@@ -36,7 +36,7 @@ function validationSite(){
 			var camrip = $("input[id='camrip']").val();
 			var webdl = $("input[id='webdl']").val();
 			if(film){
-				$.get("/new_wotch",
+				$.get("/assets/snippets/APIsites/APIsites.php",
 				{
 					site: site_name,
 					name_film: film,
