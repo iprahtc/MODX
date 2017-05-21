@@ -38,7 +38,7 @@ function validationSite(){
 			if(film){
 				$.get("/new_wotch",
 				{
-					name_site: site_name,
+					site: site_name,
 					name_film: film,
 					season: season,
 					series: series,
@@ -50,7 +50,7 @@ function validationSite(){
 					webdl: webdl
 					
 				},function(data){
-					
+					$(".wotch-site").html(data);
 				});
 			}
 			else{
@@ -67,7 +67,7 @@ function validationSite(){
 			if(film){
 				$.get("/new_wotch",
 				{
-					name_site: site_name,
+					site: site_name,
 					tovar: tovar,
 					price_start: price_start,
 					region: region,
