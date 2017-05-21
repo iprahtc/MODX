@@ -51,7 +51,7 @@ function validationSite(){
 					action: ""
 					
 				},function(data){
-					//$(".wotch-site").html(data);
+					$(".wotch-site").html(data);
 					console.log(data);
 				});
 			}
