@@ -10,8 +10,6 @@ $modx->db->connect();
 $modx->getSettings();
 startCMSSession();
 $modx->minParserPasses=2;
-if($_GET['site'] == 'seasonvar')
-	echo 'seasonvar';
 
 $isGet = (count($_GET) && (isset($_GET['sbmsearch']) || isset($_GET['action'])));
 if($isGet) {
@@ -53,6 +51,6 @@ else if(isset($_GET['action'])) {
 			'poster' => $outputArray[$i]['poster']
 		), '[+', '+]');
 	}
-	echo "ok";
+	echo $output;
 	exit();
 }
