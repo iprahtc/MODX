@@ -47,7 +47,8 @@ function validationSite(){
 					hd720: hd720,
 					c480p: c480p,
 					camrip: camrip,
-					webdl: webdl
+					webdl: webdl,
+					action: ""
 					
 				},function(data){
 					//$(".wotch-site").html(data);
