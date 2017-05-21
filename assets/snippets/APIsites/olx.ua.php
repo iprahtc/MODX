@@ -22,9 +22,10 @@
 			return $name;
 		}
 		function img(){
-			//разбираем HTML по блокам из переменной $bloc
 			$img = $this->html->find($this->img);
-			//возвращает массив строк или одну строку
+			foreach($img as $ar){
+				$img[] = $ar->src;
+			}
 			return $img;
 		}
 		
@@ -147,7 +148,12 @@
 		$generateOLX['source'] = $site_use['site_name'];
 		$generateOLX['name'] = $array['name'][$i]." ".$array['price'][$i];
 		$generateOLX['url'] = $array['silca'][$i];
-		$generateOLX['poster'] = $array['img'][$i];
+		$html = $array['img'][$i];
+		$doc = new DOMDocument();
+		$doc->loadHTML($html);
+		$xpath = new DOMXPath($doc);
+		$src = $xpath->evaluate("string(//img/@src)");
+		$generateOLX['poster'] = $src;
 		$outputArray[] = $generateOLX;
 	}
 	
