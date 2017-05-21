@@ -137,7 +137,7 @@
 	}
 	
 	$urlOlx = new UrlGenerate();
-	$urlOlx_ = $urlOlx->generateurl($_GET['search']);
+	$urlOlx_ = $urlOlx->generateurl(urlencode($_GET['search']));
 	$a = new Parse($urlOlx_);
 	
 	$array['name'] = $a->name();
