@@ -9,7 +9,7 @@
 		
 		//выполняеться автоматически при создании объкта, тем самым подключает библиотеку
 		public function __construct($url){
-			include_once(__DIR__ .'simple_html_dom.php');
+			include_once(__DIR__ .'/simple_html_dom.php');
 			//получаем HTML сайта
 			$this->html = file_get_html($url);
 		}
