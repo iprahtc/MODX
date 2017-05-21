@@ -30,7 +30,7 @@ if($isGet) {
 
 if(isset($_GET['sbmsearch'])) {
 	$chunk = $modx->getChunk('wotching_tpl');
-	if(isset($_GET['page'])) {
+	if(isset($_GET['page']) && !empty($_GET['page'])) {
 		$page_end = $_GET['page']*PAGE_COUNT;
 		$page_start = ($_GET['page']-1)*PAGE_COUNT;
 	}
@@ -38,17 +38,27 @@ if(isset($_GET['sbmsearch'])) {
 		$page_end = PAGE_COUNT;
 		$page_start = 0;
 	}
-	for($i = 0; $i < count($outputArray) && $i <= $page_end && $i >= $page_start; $i++)
+	for($i = 0; $i < count($outputArray) && $i < $page_end && $i >= $page_start; $i++)
 	{
-		$output .= $modx->parseText($chunk, array(
-			'url' => $outputArray[$i]['url'],
-			'name' => $outputArray[$i]['name'],
-			'poster' => $outputArray[$i]['poster'],
-			'description' => $outputArray[$i]['description'],
-			'source' => $outputArray[$i]['source']
-		), '[+', '+]');
+		if($outputArray[$i]['source'] == 'olx') {
+			$output .= $modx->parseText($chunk, array(
+				'url' => $outputArray[$i]['url'],
+				'name' => '',
+				'poster' => $outputArray[$i]['poster'],
+				'description' => $outputArray[$i]['name'],
+				'source' => $outputArray[$i]['source']
+			), '[+', '+]');
+		}
+		else {
+			$output .= $modx->parseText($chunk, array(
+				'url' => $outputArray[$i]['url'],
+				'name' => $outputArray[$i]['name'],
+				'poster' => $outputArray[$i]['poster'],
+				'description' => $outputArray[$i]['description'],
+				'source' => $outputArray[$i]['source']
+			), '[+', '+]');
+		}
 	}
-	return $output;
 }
 else if(isset($_GET['action'])) {
 	$chunk = $modx->getChunk('preview_sz');
@@ -63,5 +73,26 @@ else if(isset($_GET['action'])) {
 	echo $output;
 	exit();
 }
+
+if(count($_GET) == 1)
+	return $output;
+
+$chunk = $modx->getChunk('pagination');
+$output .= $modx->parseText($chunk, array(
+	'prev' => '#',
+	'next' => '#',
+	'ph1' => '#',
+	'ph2' => '#',
+	'ph3' => '#',
+	'ph4' => '#',
+	'ph5' => '#',
+	'p1' => '1',
+	'p2' => '2',
+	'p3' => '3',
+	'p4' => '4',
+	'p5' => '5'
+), '[+', '+]');
+
+return $output;
 
 return;
