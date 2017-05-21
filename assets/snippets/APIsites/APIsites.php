@@ -43,7 +43,7 @@ if(isset($_GET['sbmsearch'])) {
 }
 else if(isset($_GET['action'])) {
 	$chunk = $modx->getChunk('preview_sz');
-	for($i = 0; $i < count($outputArray) || $i < 4; $i++)
+	for($i = 0; $i < count($outputArray) && $i < 4; $i++)
 	{
 		$chunk_out = $chunk;
 		$chunk_out = str_replace("[+url+]", $outputArray[$i]['url'], $chunk_out);
