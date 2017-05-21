@@ -24,8 +24,8 @@ function forWotch(name_site){
 
 function validationSite(){
 	//console.log(site_name);
-	switch (a) {
-		case seasonvar:
+	switch (site_name) {
+		case "seasonvar":
 			var film = $("input[name='first_name']").val();
 			var season = $("input[name='season']").val();
 			var series = $("input[name='series']").val();
@@ -50,7 +50,8 @@ function validationSite(){
 					webdl: webdl
 					
 				},function(data){
-					$(".wotch-site").html(data);
+					//$(".wotch-site").html(data);
+					console.log(data);
 				});
 			}
 			else{
@@ -58,7 +59,7 @@ function validationSite(){
 			}
 			break;
 			
-		case olx:
+		case "olx":
 			var tovar = $("input[name='first_name']").val();
 			var price_start = $("input[name='price_start']").val();
 			var price_final = $("input[name='price_final']").val();
