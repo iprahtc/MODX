@@ -53,25 +53,6 @@
 		private $search = "q-";//Начало строки поиска
 		public $http = "https://www.olx.ua/";//Начало URL
 		
-		//Приведение строки поиска к подходящему к OLX виду
-		private function convert($str)
-		{
-			//Проверяем все символы и записываем результат в search
-			for($i = 0; $i < strlen($str); $i++)
-			{
-				if($str[$i] == ' ' || $str[$i] == '/')
-					$this->search .= '-';
-				elseif($str[$i] == '#')
-					$this->search .= 'ht_';
-				elseif((ord($str[$i]) >= 32 && ord($str[$i]) <= 64) ||
-						(ord($str[$i]) >= 91 && ord($str[$i]) <= 96) ||
-						(ord($str[$i]) >= 123 && ord($str[$i]) <= 126))
-					$this->search .= '%'.dechex(ord($str[$i]));
-				else
-					$this->search .= $str[$i];
-			}
-		}
-		
 		/* //Конвертирование региона в транслит
 		private function convertCity($str)
 		{	
@@ -112,7 +93,7 @@
 			$end = "search%5Bfilter_float_price%3Ato%5D=";
 			
 			//Приводим строку поиска к подходящему к OLX виду
-			$this->convert($_search);
+			$this->search .= urlencode($_search);
 			
 			//Конвертируем регион в транслит
 			$_region = $this->convertCity($region);
@@ -137,7 +118,7 @@
 	}
 	
 	$urlOlx = new UrlGenerate();
-	$urlOlx_ = $urlOlx->generateurl(urlencode($_GET['search']));
+	$urlOlx_ = $urlOlx->generateurl($_GET['search']);
 	$a = new Parse($urlOlx_);
 	
 	$array['name'] = $a->name();
