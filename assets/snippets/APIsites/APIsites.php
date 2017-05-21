@@ -45,12 +45,14 @@ else if(isset($_GET['action'])) {
 	$chunk = $modx->getChunk('preview_sz');
 	for($i = 0; $i < count($outputArray) || $i < 4; $i++)
 	{
-		$output .= $modx->parseText($chunk, array(
-			'url' => $outputArray[$i]['url'],
-			'name' => $outputArray[$i]['name'],
-			'poster' => $outputArray[$i]['poster']
-		), '[+', '+]');
+		$chunk_out = $chunk;
+		$chunk_out = str_replace("[+url+]", $outputArray[$i]['url'], $chunk_out);
+		$chunk_out = str_replace("[+name+]", $outputArray[$i]['name'], $chunk_out);
+		$chunk_out = str_replace("[+poster+]", $outputArray[$i]['poster'], $chunk_out);
+		$output .= $chunk_out;
 	}
 	echo $output;
 	exit();
 }
+
+return;
