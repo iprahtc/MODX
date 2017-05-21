@@ -2,48 +2,51 @@
 /*
 *	Поиск по названию
 */
-if(count($_GET) == 2 && isset($_GET['search'])) {
-	$postdata = http_build_query(
-		array(
-			'key' => '767705c0',
-			'command' => 'search',
-			'query' => $_GET['search'],
-		)
-	);
+define('MODX_API_MODE', true);
+include_once 'manager/includes/config.inc.php';
+include_once 'manager/includes/document.parser.class.inc.php';
+$modx = new DocumentParser;
+$modx->db->connect();
+$modx->getSettings();
+startCMSSession();
+$modx->minParserPasses=2;
 
+$isGet = (count($_GET) && (isset($_GET['sbmsearch']) || isset($_GET['action'])));
+$outputArray = array();
 
-	$opts = array(
-		'http' =>
-		array(
-			'method'  => 'POST',
-			'content' => $postdata
-		)
-	);
+$site_use = array();
+$res = $modx->db->select("site_name, site_api", "modx_site_use");
 
-
-	$context  = stream_context_create($opts);
-	$data = json_decode(file_get_contents('http://api.seasonvar.ru/', false, $context), true);
+while($row = $modx->db->getRow($res)) {
+	$site_use = $row;
+	if(file_exists($_SERVER['DOCUMENT_ROOT'].$row['site_api']) && $row['site_name'] == $_GET['site']) {
+		require_once($_SERVER['DOCUMENT_ROOT'].$row['site_api']);
+		break;
+	}
 }
-//print_r($data);
-//echo '<i class="material-icons">search</i>';
-//$output .= '<input class="col s10" type="text" name="search" placeholder="Введите запрос для поиска">';
-$chunk = $modx->getChunk('wotching_tpl');
-$last_season = null;
-for($i = 0; $i < count($data); $i++)
-{
-	$last_season = $data[$i];
-	$last_season['source'] = 'seasonvar.ru';
-	if($last_season['season'][0] > 0)
-		$season = ' ('.$last_season['season'][0].' сезон)';
-	else
-		$season = '';
-	$output .= $modx->parseText($chunk, array(
-		'url' => $last_season['url'],
-		'name' => $last_season['name'].$season,
-		'poster' => $last_season['poster'],
-		'description' => $last_season['description'],
-		'source' => $last_season['source']
-	), '[+', '+]');
+if(isset($_GET['sbmsearch'])) {
+	$chunk = $modx->getChunk('wotching_tpl');
+	for($i = 0; $i < count($outputArray); $i++)
+	{
+		$output .= $modx->parseText($chunk, array(
+			'url' => $outputArray[$i]['url'],
+			'name' => $outputArray[$i]['name'],
+			'poster' => $outputArray[$i]['poster'],
+			'description' => $outputArray[$i]['description'],
+			'source' => $outputArray[$i]['source']
+		), '[+', '+]');
+	}
+}
+else if(isset($_GET['action'])) {
+	$chunk = $modx->getChunk('preview_sz');
+	for($i = 0; $i < count($outputArray) || $i < 4; $i++)
+	{
+		$output .= $modx->parseText($chunk, array(
+			'url' => $outputArray[$i]['url'],
+			'name' => $outputArray[$i]['name'],
+			'poster' => $outputArray[$i]['poster']
+		), '[+', '+]');
+	}
 }
 
 return $output;
