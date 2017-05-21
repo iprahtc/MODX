@@ -27,7 +27,7 @@ if($isGet) {
 		$last_season = $data[$i];
 		if(!isset($last_season['id']))
 			break;
-		$last_season['source'] = $site_use['name'];
+		$last_season['source'] = $site_use['site_name'];
 		$last_season['url'] = "http://seasonvar.ru/";
 		if($last_season['season'][0] > 0)
 			$season = ' ('.$last_season['season'][0].' сезон)';
