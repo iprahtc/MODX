@@ -73,7 +73,8 @@ function validationSite(){
 					search: tovar,
 					price_start: price_start,
 					region: region,
-					city: city
+					city: city,
+					action: ""
 					
 				},function(data){
 					$(".wotch-site").html(data);
