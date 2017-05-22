@@ -66,17 +66,18 @@ function validationSite(){
 			var price_final = $("input[name='price_final']").val();
 			var region = $("input[name='region']").val();
 			var city = $("input[id='city']").val();
-			if(film){
-				$.get("/new_wotch",
+			if(tovar){
+				$.get("/assets/snippets/APIsites/APIsites.php",
 				{
 					site: site_name,
-					tovar: tovar,
+					search: tovar,
 					price_start: price_start,
 					region: region,
 					city: city
 					
 				},function(data){
-					
+					$(".wotch-site").html(data);
+					console.log(data);
 				});
 			}
 			else{
