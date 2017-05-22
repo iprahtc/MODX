@@ -30,6 +30,15 @@ if($isGet) {
 
 if(isset($_GET['sbmsearch'])) {
 	$chunk = $modx->getChunk('wotching_tpl');
+	
+	$pageCount = count($outputArray)/PAGE_COUNT;
+	$pageCount = (int)$pageCount;
+	if(count($outputArray)%PAGE_COUNT)
+		$pageCount++;
+	
+	if($pageCount < $_GET['page'])
+		$_GET['page'] = $pageCount;
+	
 	if(isset($_GET['page']) && !empty($_GET['page'])) {
 		$page_end = $_GET['page']*PAGE_COUNT;
 		$page_start = ($_GET['page']-1)*PAGE_COUNT;
@@ -37,26 +46,30 @@ if(isset($_GET['sbmsearch'])) {
 	else {
 		$page_end = PAGE_COUNT;
 		$page_start = 0;
+		$_GET['page'] = 1;
 	}
-	for($i = 0; $i < count($outputArray) && $i < $page_end && $i >= $page_start; $i++)
+	
+	for($i = 0; $i < count($outputArray) && $i < $page_end; $i++)
 	{
-		if($outputArray[$i]['source'] == 'olx') {
-			$output .= $modx->parseText($chunk, array(
-				'url' => $outputArray[$i]['url'],
-				'name' => '',
-				'poster' => $outputArray[$i]['poster'],
-				'description' => $outputArray[$i]['name'],
-				'source' => $outputArray[$i]['source']
-			), '[+', '+]');
-		}
-		else {
-			$output .= $modx->parseText($chunk, array(
-				'url' => $outputArray[$i]['url'],
-				'name' => $outputArray[$i]['name'],
-				'poster' => $outputArray[$i]['poster'],
-				'description' => $outputArray[$i]['description'],
-				'source' => $outputArray[$i]['source']
-			), '[+', '+]');
+		if($i >= $page_start) {
+			if($outputArray[$i]['source'] == 'olx') {
+				$output .= $modx->parseText($chunk, array(
+					'url' => $outputArray[$i]['url'],
+					'name' => '',
+					'poster' => $outputArray[$i]['poster'],
+					'description' => $outputArray[$i]['name'],
+					'source' => $outputArray[$i]['source']
+				), '[+', '+]');
+			}
+			else {
+				$output .= $modx->parseText($chunk, array(
+					'url' => $outputArray[$i]['url'],
+					'name' => $outputArray[$i]['name'],
+					'poster' => $outputArray[$i]['poster'],
+					'description' => $outputArray[$i]['description'],
+					'source' => $outputArray[$i]['source']
+				), '[+', '+]');
+			}
 		}
 	}
 }
@@ -74,25 +87,32 @@ else if(isset($_GET['action'])) {
 	exit();
 }
 
-if(count($_GET) == 1)
+if(count($_GET) == 1 || $pageCount < 2)
 	return $output;
+$output .= '<div class="row center">
+	<ul class="pagination">';
+$queryUri = preg_replace("/&page=.*/i", '', $_SERVER['REQUEST_URI']);
 
-$chunk = $modx->getChunk('pagination');
-$output .= $modx->parseText($chunk, array(
-	'prev' => '#',
-	'next' => '#',
-	'ph1' => '#',
-	'ph2' => '#',
-	'ph3' => '#',
-	'ph4' => '#',
-	'ph5' => '#',
-	'p1' => '1',
-	'p2' => '2',
-	'p3' => '3',
-	'p4' => '4',
-	'p5' => '5'
-), '[+', '+]');
+if($_GET['page'] == 1)
+	$output .= '<li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>';
+else
+	$output .= '<li class="waves-effect"><a href="'.$queryUri.'&amp;page='.($_GET['page']-1).'"><i class="material-icons">chevron_left</i></a></li>';
+
+$pstart = ($_GET['page']%5) == 0 ? $_GET['page'] - 5 : $_GET['page'] - ($_GET['page']%5);
+$pend = $pstart+5;
+
+for($i = $pstart+1; $i <= $pend && $i <= $pageCount; $i++) {
+	if($i == $_GET['page'])
+		$output .= '<li class="active"><a>'.$i.'</a></li>';
+	else
+		$output .= '<li class="waves-effect"><a href="'.$queryUri.'&amp;page='.$i.'">'.$i.'</a></li>';
+}
+/*($_GET['page'] - ($_GET['page']%5)) == ($pageCount - ($pageCount%5))*/
+if($_GET['page'] == $pageCount)
+	$output .= '<li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>';
+else
+	$output .= '<li class="waves-effect"><a href="'.$queryUri.'&amp;page='.($_GET['page']+1).'"><i class="material-icons">chevron_right</i></a></li>
+	</ul>
+</div>';
 
 return $output;
-
-return;
