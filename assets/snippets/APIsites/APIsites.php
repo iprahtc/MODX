@@ -87,12 +87,15 @@ else if(isset($_GET['action'])) {
 	exit();
 }
 
+//Пагинация
 if(count($_GET) == 1 || $pageCount < 2)
 	return $output;
 $output .= '<div class="row center">
 	<ul class="pagination">';
+//Удаляем предыдущий пейдж из гет запроса
 $queryUri = preg_replace("/&page=.*/i", '', $_SERVER['REQUEST_URI']);
 
+//Устанавливаем стрелочку влево типа дисейбл если выбрана первая страница, и актмвноё в другом случае
 if($_GET['page'] == 1)
 	$output .= '<li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>';
 else
@@ -101,13 +104,15 @@ else
 $pstart = ($_GET['page']%5) == 0 ? $_GET['page'] - 5 : $_GET['page'] - ($_GET['page']%5);
 $pend = $pstart+5;
 
+//выделяем активную страницу
 for($i = $pstart+1; $i <= $pend && $i <= $pageCount; $i++) {
 	if($i == $_GET['page'])
 		$output .= '<li class="active"><a>'.$i.'</a></li>';
 	else
 		$output .= '<li class="waves-effect"><a href="'.$queryUri.'&amp;page='.$i.'">'.$i.'</a></li>';
 }
-/*($_GET['page'] - ($_GET['page']%5)) == ($pageCount - ($pageCount%5))*/
+
+//Делаем неактивной если последняя страница
 if($_GET['page'] == $pageCount)
 	$output .= '<li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>';
 else
